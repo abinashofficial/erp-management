@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({
         sx={{ display: isOpenMenu ? "block" : "none", position: "relative" }}
       >
         <div style={{ width: "30px" }}>
-          <Link to="/">
+          <Link to="/Packaging_Management">
             <img className="largeLogo" src={Logo} alt="Logo" width="50px">
             </img>
               {/* <div className="logoLine"></div> */}
@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({
       </Box>
 
       <Box sx={{ display: isOpenMenu ? "none" : "block" }}>
-        <Link to="/">
+        <Link to="/Packaging_Management">
           <img
             src={LogoSmall}
             alt="Small Logo"
@@ -220,7 +220,7 @@ const Header: React.FC<HeaderProps> = ({
                   p: 1,
                   "&:hover": { bgcolor: darkMode ? "#333333" : "#f0f0f0" },
                 }}
-                 onClick={() => {         setEmployeeRole(""); navigate("/login")}}
+                 onClick={() => {         setEmployeeRole(""); navigate("/")}}
               >
                 <span                        
 style={{ marginRight: "8px" }}>Log Out</span>

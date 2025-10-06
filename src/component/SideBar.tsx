@@ -86,7 +86,7 @@ const SideBar: React.FC<SideBarProps> = ({
       name: "Raise Request",
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
       icon:<BackHandOutlinedIcon/>,
-      path:"/",
+      path:"/Packaging_Management",
       onClick: ()=>handleMenuItemClick(true), // Example onClick function
     },
     {
@@ -97,7 +97,7 @@ const SideBar: React.FC<SideBarProps> = ({
     {
       name: "Packaging List",
       icon: <PackagingList />,
-      path: "/",
+      path: "/Packaging_Management",
 
       submenu: [
         {
@@ -130,7 +130,7 @@ const SideBar: React.FC<SideBarProps> = ({
       name: "Raise Request",
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
       icon:<BackHandOutlinedIcon/>,
-      path:"/",
+      path:"/Packaging_Management",
 
 
       onClick: ()=>handleMenuItemClick(true), // Example onClick function
@@ -143,7 +143,7 @@ const SideBar: React.FC<SideBarProps> = ({
     {
       name: "Packaging List",
       icon: <PackagingList />,
-      path: "/",
+      path: "/Packaging_Management",
       submenu: [
         {
           path: "/groundcomponents",
@@ -166,7 +166,7 @@ const SideBar: React.FC<SideBarProps> = ({
       name: "Project Lead",
       // icon:   <img className="menu_icons" src={projectleadicon} alt="projectlead" />      ,
       icon:<GroupsOutlinedIcon/>,
-      path: "/",
+      path: "/Packaging_Management",
       submenu: [
         {
           path: "Packaging_Management/packingrequests",
@@ -220,7 +220,7 @@ const SideBar: React.FC<SideBarProps> = ({
     {
       name: "Raise Request",
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
-      path:"/",
+      path:"/Packaging_Management",
       icon:<BackHandOutlinedIcon/>,
 
       onClick: ()=>setOpenInventoryLeadRaise(true), // Example onClick function
@@ -233,7 +233,7 @@ const SideBar: React.FC<SideBarProps> = ({
     {
       name: "Packaging List",
       icon: <PackagingList />,
-      path: "/",
+      path: "/Packaging_Management",
       submenu: [
         {
           path: "/groundcomponents",
@@ -298,7 +298,7 @@ const SideBar: React.FC<SideBarProps> = ({
     {
       name: "Package List",
       icon: <PackagingList />,
-      path: "/",
+      path: "/Packaging_Management",
       submenu: [
         {
           path: "/groundcomponents",
@@ -345,7 +345,7 @@ const SideBar: React.FC<SideBarProps> = ({
     {
       name: "Packaging List",
       icon: <PackagingList />,
-      path: "/",
+      path: "/Packaging_Management",
       submenu: [
         {
           path: "/groundcomponents",

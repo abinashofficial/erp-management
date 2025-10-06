@@ -41,7 +41,7 @@ export function LandingPage() {
 
     useEffect(() => {
       if (!employeeRole) {
-        navigate("/login");
+        navigate("/");
       }
     }, [employeeRole]);
   const props: string[] = ['Component should only occupy 70% of the box. ', 'Component should be at the center with packaging material surrounding. ', 'For corton box - maximum 15kgs always use wooden box. ', 'Box should be waterproof - Shrink wrap or taped properly or by other means, say tarpaulin. '];

@@ -147,9 +147,9 @@ const App: React.FC = () => {
 
       
           <Routes>
-            <Route path="/" element={<LandingPage/>} />'
+            <Route path="/Packaging_Management" element={<LandingPage/>} />'
 
-            <Route path="/login" element={<Auth />} /> 
+            <Route path="/" element={<Auth />} /> 
             <Route path="/Packaging_Management/trackreq" element={<UserTrackRequest />} />
             <Route path="/Packaging_Management/packingrequests" element={<PackingRequest />} />
             <Route path="/Packaging_Management/inventorlead" element={<InventoryRequest />} />
