@@ -505,7 +505,7 @@ const SideBar: React.FC<SideBarProps> = ({
           <div key={index} className="menu" onClick={ item.onClick}>
             <Box
               component={Link}
-              to={!item.submenu && item.path || '/'}
+              to={!item.submenu && item.path || '/Packaging_Management'}
                             onClick={() => {
                 item.submenu && toggleSubMenu(index);
                 toggleActiveMenu(index);
@@ -575,7 +575,7 @@ const SideBar: React.FC<SideBarProps> = ({
                   <Box
                     key={subIndex}
                     component={Link}
-                    to={subItem.path || '/'}
+                    to={subItem.path || '/Packaging_Management'}
                     sx={{
                       display: "flex",
                       alignItems: "center",

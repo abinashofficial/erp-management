@@ -191,7 +191,7 @@ const handleTextFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTex
               toast.success(message);
               clearRaiseReqList();
               setTimeout(() => {
-                navigate("/")
+                navigate("/Packaging_Management")
               }, 5000);
     }
   };
