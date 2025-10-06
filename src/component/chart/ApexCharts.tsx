@@ -1,10 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-interface SeriesData {
-  name: string;
-  data: number;
-}
+
 
 interface ApexChartProps {
   seriesData: any;

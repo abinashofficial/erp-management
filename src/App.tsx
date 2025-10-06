@@ -7,7 +7,6 @@ import "./style/animation.css";
 import Header from "./component/Header.tsx";
 import SideBar from "./component/SideBar.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import About from "./pages/About";
 import LandingPage from "./pages/landing_page/LandingPage.tsx";
 import { Auth } from "./Auth.tsx";
 export const locateContext = createContext<any>({});
@@ -15,46 +14,27 @@ export const locateContext = createContext<any>({});
 import { UserTrackRequest } from "./pages/track_req/UserTrackReq.tsx"
 import { PackingRequest } from "./pages/track_req/ProjectLeadReq.tsx";
 import {InventoryRequest}  from "./pages/track_req/InventoryLeadReq.tsx";
-
 import { QualityLeadRequest } from "./pages/track_req/QualityLeadReq.tsx";
 import './pages/raise-req/CommonDrawer.css'
 import { PackerApprovalRequest } from "./pages/track_req/PackerApprovalReq.tsx";
 import ComponenetLists from "./pages/packaging_list/ComponentList.tsx";
-
 import OverAllDashboardRequest from "./pages/dashboard/OverAllDashboard";
 import "./pages/track_req/CommonTrackReq.css";
 import "./pages/raise-req/CommonDrawer.css";
 import "./pages/landing_page/LandingPage.css";
-
 import GroundCheckLists from "./pages/packer_checklist/GroundCheckList.tsx" 
 import FlightCheckLists from "./pages/packer_checklist/FlightCheckList.tsx" 
 import ConsumableCheckLists from "./pages/packer_checklist/ConsumableCheckList.tsx" 
 import QualityGroundCheckLists from "./pages/quality_checklist/GroundCheckList.tsx" 
 import QualityFlightCheckLists from "./pages/quality_checklist/FlightCheckList.tsx" 
 import QualityConsumableCheckLists from "./pages/quality_checklist/ConsumableCheckList.tsx" 
-
+import ScrollToTop from "./component/scrolltotop.tsx";
 // import {PackerDashboardRequest} from "./pages/dashboard/TodayPacker.tsx";
 // import  Yearly  from "./component/calendar/CalendarComplete/YearlyCal";
 // import Calendar from "./component/calendar/CALENDAR/src/Calendar";
 
 
-interface Item {
-  name: string;
-  employee_id: string;
-  employee_name: string;
-  package_type: string;
-  status: string;
-  transport_from: string;
-  transport_to: string;
-  transport_mode: string;
-  purpose: string;
-  image_1: null;
-  image_2:null;
-  image_3:null;
-  image_4:null;
-  image_5:null;
-  image_6:null;
-}
+
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -112,6 +92,8 @@ const App: React.FC = () => {
 
   return (
       <BrowserRouter>
+      <ScrollToTop />
+
       <locateContext.Provider
           value={{
             empdetail: empdetail,
@@ -167,7 +149,6 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<LandingPage/>} />'
 
-            <Route path="/reporting" element={<About darkMode={darkMode} />} />
             <Route path="/login" element={<Auth />} /> 
             <Route path="/Packaging_Management/trackreq" element={<UserTrackRequest />} />
             <Route path="/Packaging_Management/packingrequests" element={<PackingRequest />} />
@@ -182,9 +163,9 @@ const App: React.FC = () => {
             <Route path="/Packaging_Management/checklist/flightcomponent" element={<QualityFlightCheckLists/>} />
             <Route path="/Packaging_Management/checklist/consumablecomponent" element={<QualityConsumableCheckLists/>} />
 
-            <Route path="/Packaging_Management/checklist/groundcomponent/edit" element={<GroundCheckLists listType={"Ground Components"} action={"edit"}/>} />
-            <Route path="/Packaging_Management/checklist/flightcomponent/edit" element={<FlightCheckLists listType={"Flight Components"} action={"edit"}/>} />
-            <Route path="/Packaging_Management/checklist/consumablecomponent/edit" element={<ConsumableCheckLists listType={"Consumable Components"} action={"edit"}/>} />
+            <Route path="/Packaging_Management/checklist/groundcomponent/edit" element={<GroundCheckLists listType={"Ground Components"} />} />
+            <Route path="/Packaging_Management/checklist/flightcomponent/edit" element={<FlightCheckLists listType={"Flight Components"} />} />
+            <Route path="/Packaging_Management/checklist/consumablecomponent/edit" element={<ConsumableCheckLists listType={"Consumable Components"} />} />
 
           </Routes>
         </SideBar>

@@ -19,16 +19,9 @@ import Alert from '@mui/material/Alert';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
 // import { useFrappeUpdateDoc } from "frappe-react-sdk";
 
-
-
-interface SelectedOptions {
-    assign_packer: string;
-  }
   
 
 interface Item {
@@ -91,8 +84,8 @@ useEffect(() => {
 
     const [selectedOptions, setSelectedOptions] = useState("");
 
-    const { employeeRole, empdetail } = useContext(locateContext);
-    const [currentDate, setCurrentDate] = useState<string>('');
+    const {  empdetail } = useContext(locateContext);
+    // const [ setCurrentDate] = useState<string>('');
     const [errorMsg, setErrorMsg] = useState<string>('');
     const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
     // const { updateDoc } = useFrappeUpdateDoc();
@@ -100,15 +93,15 @@ useEffect(() => {
     const [rejectReason, setRejectReason] = useState<string>('');
 
   
-    useEffect(() => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
+    // useEffect(() => {
+    //   const now = new Date();
+    //   const year = now.getFullYear();
+    //   const month = String(now.getMonth() + 1).padStart(2, '0');
+    //   const day = String(now.getDate()).padStart(2, '0');
   
-      const formattedDate = `${year}-${month}-${day}`;
-      setCurrentDate(formattedDate);
-    }, []);
+    //   const formattedDate = `${year}-${month}-${day}`;
+    //   setCurrentDate(formattedDate);
+    // }, []);
 
 
 
@@ -141,18 +134,11 @@ useEffect(() => {
             setErrorSnackbarOpen(true);
         }else{
         let status = "Inventory Lead "+ action;
-        let dashboardStatus = "Pending";
-        if (action === "Rejected"){
-          dashboardStatus = "Cancelled";
-        }
-        const formRaiseRequest = {
-            status: status,
-            updated_request: currentDate,
-            updated_by: empdetail.employee_name,
-            packer_name:selectedOptions[0],
-            reject_reason:rejectReason,
-            dasboard_status: dashboardStatus,
-        };
+        // let dashboardStatus = "Pending";
+        // if (action === "Rejected"){
+        //   dashboardStatus = "Cancelled";
+        // }
+
             try {
                 // updateDoc("Packaging Request", `${item.name}`, formRaiseRequest);
                 console.log("Document updated successfully ", item.name, status, empdetail.employee_name);
@@ -186,7 +172,7 @@ useEffect(() => {
         onClose()
       }
 
-      const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (event, reason) => {
+      const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (_event, reason) => {
         if (reason === 'clickaway') {
       return;
     }

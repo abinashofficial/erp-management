@@ -2,45 +2,19 @@ import React, { useState, useEffect } from "react";
 import { IconButton, Box } from "@mui/material";
 import { AiOutlineBars } from "react-icons/ai";
 import { HiOutlineHandRaised } from "react-icons/hi2";
-import { RiFocus3Line } from "react-icons/ri";
-
-import { HiOutlineUserGroup } from "react-icons/hi2";
-import { PiHandCoinsFill } from "react-icons/pi";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { SiSymantec } from "react-icons/si";
-import { PiNotepadBold } from "react-icons/pi";
-import { PiNotePencilBold } from "react-icons/pi";
-import Drawer from '@mui/material/Drawer';
-import { useTheme } from "@mui/material/styles";
-
 import { useMediaQuery } from "@mui/material";
-
 import { Link } from "react-router-dom";
-
-// import Raise from "../assets/raise.png";
-import Inventory from "../assets/inven.png";
-import QualityIcon from "../assets/quality.png";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { byPrefixAndName } from '@awesome.me/kit-KIT_CODE/icons'
 import {InventoryLeadRaiseRequest} from "../pages/raise-req/InventoryLeadRaise.tsx";
-
-
-import coins from "../assets/ph_coins.png";
-import projectleadicon from "../assets/project_lead_icon.png";
 import PackagingList from '@mui/icons-material/ListAltOutlined';
-import Projectleadicon from "../assets/project_lead_icon.png"
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import { RaiseRequest } from "../pages/raise-req/RaiseReq";
 import { useContext } from "react";
-
 import { locateContext } from "../App";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import BackHandOutlinedIcon from '@mui/icons-material/BackHandOutlined';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 
@@ -83,7 +57,7 @@ const SideBar: React.FC<SideBarProps> = ({
 
 
 
-  const [rotateIcon, setRotateIcon] = useState(false);
+  const [rotateIcon] = useState(false);
 
   const isMobile = useMediaQuery("(max-width:600px)"); // Define the breakpoint for mobile screens
 
@@ -107,7 +81,7 @@ const SideBar: React.FC<SideBarProps> = ({
     setOpen(openStatus)
   };
 
-  const [userMenuItems, setUserMenuItems] = useState<MenuItem[]>([
+  const [userMenuItems] = useState<MenuItem[]>([
     {
       name: "Raise Request",
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
@@ -151,7 +125,7 @@ const SideBar: React.FC<SideBarProps> = ({
     // },
   ]);
 
-  const [projectLeadMenuItems, setProjectLeadMenuItems] = useState<MenuItem[]>([
+  const [projectLeadMenuItems] = useState<MenuItem[]>([
     {
       name: "Raise Request",
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
@@ -242,7 +216,7 @@ const SideBar: React.FC<SideBarProps> = ({
     // },
   ]);
 
-  const [inventoryLeadMenuItems, setInventoryLeadMenuItems] = useState<MenuItem[]>([
+  const [inventoryLeadMenuItems] = useState<MenuItem[]>([
     {
       name: "Raise Request",
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
@@ -320,7 +294,7 @@ const SideBar: React.FC<SideBarProps> = ({
     // },
   ]);
 
-  const [packerMenuItems, setPackerMenuItems] = useState<MenuItem[]>([
+  const [packerMenuItems] = useState<MenuItem[]>([
     {
       name: "Package List",
       icon: <PackagingList />,
@@ -361,7 +335,7 @@ const SideBar: React.FC<SideBarProps> = ({
     // },
   ]);
 
-  const [qualityLeadMenuItems, setQualtyLeadMenuItems] = useState<MenuItem[]>([
+  const [qualityLeadMenuItems] = useState<MenuItem[]>([
     
     {
       path: "/Packaging_Management/dashboard",
@@ -460,7 +434,7 @@ const SideBar: React.FC<SideBarProps> = ({
       }))
     );
   };
-  const theme = useTheme();
+  // const theme = useTheme();
 
   useEffect(() => {
     const activeIndex = sessionStorage.getItem("activeMenuItemIndex");

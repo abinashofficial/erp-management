@@ -1,25 +1,12 @@
-import PieChart from '../../component/chart/PieChart';
-import DonutChart from '../../component/chart/DonutChart';
-import LineChart from "../../component/chart/LineChartMonth.tsx"
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { display } from '@mui/system';
 import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import type { SelectChangeEvent } from "@mui/material/Select";
-import React, { useState, useEffect } from 'react';
+import  { useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
-import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import "./DashBoard.css"
-// import { CSmartTable } from '@coreui/react-pro';
-import { CBadge,CButton,CAvatar,CCollapse,CCardBody} from '@coreui/react';
-import { DashboardRequest } from '../track_req/DashboardReq';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import { styled } from '@mui/material/styles';
 
-import { useNavigate } from "react-router-dom";
 import {TodayRequest} from "./TodayReq.tsx"
 import {MonthRequest} from "./MonthlyReq.tsx"
 import {WeakRequest} from "./WeekReq.tsx"
@@ -39,38 +26,37 @@ import WeekPackerDashboardRequest from './WeekPacker.tsx';
 
 
 export function OverAllDashboardRequest() {
-  const [myList, setMyList] = useState<string[]>(["Today", "Week", "Month"]);
+  const [myList] = useState<string[]>(["Today", "Week", "Month"]);
   const [timeLine, setTimeLine] = useState<string>("Today");
   const [menuList, setMenuList] = useState<string>("Request");
 
   // const [assignPacker, setAssignPacker] = useState<boolean>(false);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-  const navigate = useNavigate();
+  // const [isOpen, setIsOpen] = useState(false);
+  // const navigate = useNavigate();
 
 
-  const options = ['Option 1', 'Option 2', 'Option 3'];
+  // const options = ['Option 1', 'Option 2', 'Option 3'];
 
-  const assignPacker = () => {
-    navigate("/dashboard/packer")
-  };
+  // const assignPacker = () => {
+  //   navigate("/dashboard/packer")
+  // };
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleDropdown = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
-  const handleOptionSelect = (option: string) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-  };
+  // const handleOptionSelect = (option: string) => {
+  //   setSelectedOption(option);
+  //   setIsOpen(false);
+  // };
 
 
 
-  const handleChange = (label: string) => (event: SelectChangeEvent<string>) => {
-    const selectedValue = event.target.value;
+  // const handleChange = (label: string) => (event: SelectChangeEvent<string>) => {
+  //   const selectedValue = event.target.value;
   
-  };
+  // };
 
   // const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   //   width:60,
@@ -85,22 +71,22 @@ export function OverAllDashboardRequest() {
   //   },
   // }));
 
-  const BorderVerticalProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 60, // Change width to height
-    width: 6, // Change height to width
-    borderRadius: 5,
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-      borderRadius: 5,
-      backgroundColor: theme.palette.mode === 'light' ? '#C7A96E' : '#C7A96E',
-    },
-  }));
-  const handleComponentClinic = () => {
-    console.log('Search icon clicked!');
-    navigate("/dashboard/groundcomponents")
-  };
+  // const BorderVerticalProgress = styled(LinearProgress)(({ theme }) => ({
+  //   height: 60, // Change width to height
+  //   width: 6, // Change height to width
+  //   borderRadius: 5,
+  //   [`&.${linearProgressClasses.colorPrimary}`]: {
+  //     backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+  //   },
+  //   [`& .${linearProgressClasses.bar}`]: {
+  //     borderRadius: 5,
+  //     backgroundColor: theme.palette.mode === 'light' ? '#C7A96E' : '#C7A96E',
+  //   },
+  // }));
+  // const handleComponentClinic = () => {
+  //   console.log('Search icon clicked!');
+  //   navigate("/dashboard/groundcomponents")
+  // };
   
   return (
     <Box sx={{ flexGrow: 1 }}>

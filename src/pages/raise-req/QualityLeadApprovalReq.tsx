@@ -11,19 +11,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import { useContext } from 'react';
 import { locateContext } from '../../App';
-// import { useFrappeUpdateDoc } from "frappe-react-sdk";
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import Service from '../../service/Service';
-import { QualityLeadRequest } from '../track_req/QualityLeadReq';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { margin } from '@mui/system';
 
 
 
@@ -52,10 +46,10 @@ export function QualityLeadApprovalRequest({ open, onClose, item }: { open: bool
     const { employeeRole, empdetail } = useContext(locateContext);
     console.log(employeeRole, "employeeRole")
     const [currentDate, setCurrentDate] = useState<string>('');
-    const [errorMsg, setErrorMsg] = useState<string>('');
-    const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
-    // const { updateDoc } = useFrappeUpdateDoc();
-    const [selectedImage, setSelectedImage] = useState(null);
+    // const [ setErrorMsg] = useState<string>('');
+    // const [ setErrorSnackbarOpen] = useState<boolean>(false);
+    // // const { updateDoc } = useFrappeUpdateDoc();
+    // const [ setSelectedImage] = useState(null);
     const [openReject, setOpenReject] = React.useState(false);
     const [rejectReason, setRejectReason] = useState<string>('');
     const [repack, setRepack] = React.useState(false);
@@ -105,11 +99,11 @@ export function QualityLeadApprovalRequest({ open, onClose, item }: { open: bool
             image_5:item.image_5,
             image_6:item.image_6,
         })
-        setSelectedImage(item.image_1)
+        // setSelectedImage(item.image_1)
       }, [item]);
 
       const updatePackagerequest = (action: string) => {
-        let errorMessage = "";
+        // let errorMessage = "";
         let toastMessage = ""
         let status = "Quality Lead "+ action;
         if (action === "Repack"){
@@ -141,10 +135,10 @@ onClose()
                 }, 5000);
 
             } catch (error) {
-                errorMessage = "There was an error while creating the document."
+                // errorMessage = "There was an error while creating the document."
                 console.log("Error updating document:", error)
-                setErrorMsg(errorMessage);
-                setErrorSnackbarOpen(true);
+                // setErrorMsg(errorMessage);
+                // setErrorSnackbarOpen(true);
                 console.error("Error updating document:", error);
             }
     

@@ -1,32 +1,17 @@
-import PieChart from '../../component/chart/PieChart.tsx';
-import DonutChart from '../../component/chart/DonutChart.tsx';
-import LineChart from "../../component/chart/LineChartMonth.tsx"
-import Grid from '@mui/material/Grid';
+
 import Box from '@mui/material/Box';
-import { display } from '@mui/system';
-import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from "@mui/material/Select";
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import MenuItem from '@mui/material/MenuItem';
-import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import "./DashBoard.css"
-// import { CSmartTable } from '@coreui/react-pro';
-import { CBadge,CButton,CAvatar,CCollapse,CCardBody} from '@coreui/react';
-import { DashboardRequest } from '../track_req/DashboardReq.tsx';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import overallsvg from "../../assets/overall_png.png"
-import groundpng from "../../assets/ground_png.png"
-import flightpng from "../../assets/flight_png.png"
-import consumablepng from "../../assets/consumable_png.png"
-import { useNavigate } from "react-router-dom";
+
 import BarChart from '../../component/chart/BarChartMonth.tsx';
-import {CommonTableRequest} from "./CommonTable.tsx" 
+
 
 import { locateContext } from "../../App.tsx";
-import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -34,19 +19,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-// import "./QualityLeadReq.css"
-import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone';
-import CustomStepper from "../../component/stepper/Stepper.tsx";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { QualityLeadApprovalRequest } from "../raise-req/QualityLeadApprovalReq.tsx";
 import IconButton from '@mui/material/IconButton';
-import TextField from '@mui/material/TextField';
-import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
+
+import { styled } from '@mui/material/styles';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -135,15 +114,15 @@ export function MonthPackerDashboardRequest() {
     
         fetchData();
       }, []);
-  const [myList, setMyList] = useState<string[]>(["Today", "Weak", "Month", "Year"]);
-  const [value, setValue] = useState<string>("");
-  const [assignPacker, setAssignPacker] = useState<boolean>(false);
+  // const [myList, setMyList] = useState<string[]>(["Today", "Weak", "Month", "Year"]);
+  // const [value, setValue] = useState<string>("");
+  // const [assignPacker, setAssignPacker] = useState<boolean>(false);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-  const navigate = useNavigate();
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [selectedOption, setSelectedOption] = useState('');
+  // const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState("");
-  const [filters, setFilters] = useState<{ [key: string]: string }>({});
+  const [filters] = useState<{ [key: string]: string }>({});
   const [overallFilter, setOverallFilter] = useState<string>('');
 
     const { packerApprovalRequestData} = useContext(locateContext);
@@ -159,10 +138,10 @@ export function MonthPackerDashboardRequest() {
 
 
 
-  const handleChange = (label: string) => (event: SelectChangeEvent<string>) => {
-    const selectedValue = event.target.value;
+  // const handleChange = (label: string) => (event: SelectChangeEvent<string>) => {
+  //   const selectedValue = event.target.value;
   
-  };
+  // };
 
   // const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   //   width:60,
@@ -177,22 +156,22 @@ export function MonthPackerDashboardRequest() {
   //   },
   // }));
 
-  const BorderVerticalProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 60, // Change width to height
-    width: 6, // Change height to width
-    borderRadius: 5,
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-      borderRadius: 5,
-      backgroundColor: theme.palette.mode === 'light' ? '#C7A96E' : '#C7A96E',
-    },
-  }));
-  const handleComponentClinic = () => {
-    console.log('Search icon clicked!');
-    navigate("/dashboard/groundcomponents")
-  };
+  // const BorderVerticalProgress = styled(LinearProgress)(({ theme }) => ({
+  //   height: 60, // Change width to height
+  //   width: 6, // Change height to width
+  //   borderRadius: 5,
+  //   [`&.${linearProgressClasses.colorPrimary}`]: {
+  //     backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+  //   },
+  //   [`& .${linearProgressClasses.bar}`]: {
+  //     borderRadius: 5,
+  //     backgroundColor: theme.palette.mode === 'light' ? '#C7A96E' : '#C7A96E',
+  //   },
+  // }));
+  // const handleComponentClinic = () => {
+  //   console.log('Search icon clicked!');
+  //   navigate("/dashboard/groundcomponents")
+  // };
 
 
 
@@ -206,7 +185,7 @@ export function MonthPackerDashboardRequest() {
   }
         // Function to filter the table data based on filters
         const filteredRows = currentItems.filter((row:any) => {
-            return Object.entries(row).some(([key, value]) => {
+            return Object.entries(row).some(([_key, value]) => {
               if (!overallFilter) return true;
               if (typeof value === 'string') {
                 return value.toLowerCase().includes(overallFilter.toLowerCase());

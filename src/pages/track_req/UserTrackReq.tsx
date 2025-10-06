@@ -1,9 +1,7 @@
-
 import { useContext, useEffect } from "react";
 import { locateContext } from "../../App";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import React, { useState } from 'react';
-import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -12,7 +10,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-// import "./UserTrackReq.css"
 import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 import CustomStepper from "../../component/stepper/Stepper";
@@ -31,29 +28,18 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import type { SelectChangeEvent } from "@mui/material/Select";
 import DialogContentText from '@mui/material/DialogContentText';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import Autocomplete from '@mui/material/Autocomplete';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import Drawer from '@mui/material/Drawer';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
-// import { useFrappeCreateDoc, useFrappeUpdateDoc } from 'frappe-react-sdk';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import { VscBellDot } from "react-icons/vsc";
+
 
 
 
@@ -114,7 +100,7 @@ export function UserTrackRequest() {
 
 
   
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  // const [selectedItems, setSelectedItems] = useState<number[]>([]);
   // const data = trackrequest // Provide your data here
 
 
@@ -127,7 +113,7 @@ export function UserTrackRequest() {
 
 
   const filteredRows = trackrequest.filter((row: any) => {
-    return Object.entries(row).some(([key, value]) => {
+    return Object.entries(row).some(([_key, value]) => {
       if (!overallFilter) return true;
       if (typeof value === 'string') {
         return value.toLowerCase().includes(overallFilter.toLowerCase());
@@ -282,38 +268,38 @@ export function UserTrackRequest() {
 
 
 
-  const handleCheckboxChange = (index: number) => {
-    const selectedIndex = selectedItems.indexOf(index);
-    let newSelected: number[] = []; // Initialize as an empty array
+  // const handleCheckboxChange = (index: number) => {
+  //   const selectedIndex = selectedItems.indexOf(index);
+  //   let newSelected: number[] = []; // Initialize as an empty array
   
-    if (selectedIndex === -1) {
-      newSelected = [...selectedItems, index]; // Add index to newSelected array
-    } else if (selectedIndex === 0) {
-      newSelected = selectedItems.slice(1); // Remove first element from selectedItems
-    } else if (selectedIndex === selectedItems.length - 1) {
-      newSelected = selectedItems.slice(0, -1); // Remove last element from selectedItems
-    } else if (selectedIndex > 0) {
-      newSelected = [
-        ...selectedItems.slice(0, selectedIndex), // Elements before selectedIndex
-        ...selectedItems.slice(selectedIndex + 1), // Elements after selectedIndex
-      ];
-    }
+  //   if (selectedIndex === -1) {
+  //     newSelected = [...selectedItems, index]; // Add index to newSelected array
+  //   } else if (selectedIndex === 0) {
+  //     newSelected = selectedItems.slice(1); // Remove first element from selectedItems
+  //   } else if (selectedIndex === selectedItems.length - 1) {
+  //     newSelected = selectedItems.slice(0, -1); // Remove last element from selectedItems
+  //   } else if (selectedIndex > 0) {
+  //     newSelected = [
+  //       ...selectedItems.slice(0, selectedIndex), // Elements before selectedIndex
+  //       ...selectedItems.slice(selectedIndex + 1), // Elements after selectedIndex
+  //     ];
+  //   }
   
-    setSelectedItems(newSelected);
-    // Your handle checkbox change logic here
-  };
+  //   setSelectedItems(newSelected);
+  //   // Your handle checkbox change logic here
+  // };
   
 
-const handleSelectAllClick = () => {
-  if (selectedItems.length < currentItems.length) {
-    // Select all items
-    setSelectedItems(currentItems.map((item: Item, index: Number) => index));
-  } else {
-    // Deselect all items
-    setSelectedItems([]);
-  }
-  // Your handle select all logic here
-};
+// const handleSelectAllClick = () => {
+//   if (selectedItems.length < currentItems.length) {
+//     // Select all items
+//     setSelectedItems(currentItems.map((_item: Item, index: Number) => index));
+//   } else {
+//     // Deselect all items
+//     setSelectedItems([]);
+//   }
+//   // Your handle select all logic here
+// };
 
   const goToPage = (pageNumber: number) => {
     if (totalPages>=pageNumber && pageNumber>=1){
@@ -331,7 +317,7 @@ const handleSelectAllClick = () => {
     setCurrentPage(totalPages);
   };
 
-  const userAction = (item: Item, action: string, selectBool: boolean) => {
+  const userAction = (item: Item, action: string) => {
     
     if (action==="visible"){
         setVisiblereq(!visibleReq)
@@ -363,11 +349,11 @@ const handleSelectAllClick = () => {
   };
 
 
-  // Function to update filters state
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
-    const value = e.target.value;
-    setFilters((prevFilters) => ({ ...prevFilters, [field]: value }));
-  };
+  // // Function to update filters state
+  // const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
+  //   const value = e.target.value;
+  //   setFilters((prevFilters) => ({ ...prevFilters, [field]: value }));
+  // };
 
     // Function to handle dropdown filter change
     const handleDropdownFilterChange = (e: React.ChangeEvent<HTMLSelectElement>, field: string) => {
@@ -379,39 +365,38 @@ const handleSelectAllClick = () => {
     //   setOpenFilter(true);
     // };
 
-    const handleClose = (event: React.SyntheticEvent<unknown>) => {
+    const handleClose = (_event: React.SyntheticEvent<unknown>) => {
         setOpenFilter(false);
     };
 
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-    const { empdetail } = useContext(locateContext);
-    const [currentDate, setCurrentDate] = useState<string>('');
-    const [errorMsg, setErrorMsg] = useState<string>('');
-    const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
+    // const [ setCurrentDate] = useState<string>('');
+    // const [ setErrorMsg] = useState<string>('');
+    // const [ setErrorSnackbarOpen] = useState<boolean>(false);
     // const { createDoc } = useFrappeCreateDoc();
     const navigate = useNavigate();
 
   
-    useEffect(() => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
+    // useEffect(() => {
+    //   const now = new Date();
+    //   const year = now.getFullYear();
+    //   const month = String(now.getMonth() + 1).padStart(2, '0');
+    //   const day = String(now.getDate()).padStart(2, '0');
   
-      const formattedDate = `${year}-${month}-${day}`;
-      setCurrentDate(formattedDate);
-    }, []);
+    //   const formattedDate = `${year}-${month}-${day}`;
+    //   setCurrentDate(formattedDate);
+    // }, []);
     // const { updateDoc } = useFrappeUpdateDoc();
 
     const handleDelete = () => {
-      let errorMessage = ""
-      const formRaiseRequest = {
-        status: "Cancelled",
-        updated_request: currentDate,
-        updated_by: empdetail.employee_name,
-        dashboard_status:"Cancelled",
-      };
+      // let errorMessage = ""
+      // const formRaiseRequest = {
+      //   status: "Cancelled",
+      //   updated_request: currentDate,
+      //   updated_by: empdetail.employee_name,
+      //   dashboard_status:"Cancelled",
+      // };
         try {
           setDeleteReq(!deleteReq)
             //  updateDoc("Packaging Request", `${selectItem.name}`, formRaiseRequest);
@@ -425,10 +410,10 @@ const handleSelectAllClick = () => {
             }, 5000);
   
           } catch (error) {
-            errorMessage = "There was an error while creating the document."
+            // errorMessage = "There was an error while creating the document."
             console.log("Error updating document:", error)
-            setErrorMsg(errorMessage);
-            setErrorSnackbarOpen(true);
+            // setErrorMsg(errorMessage);
+            // setErrorSnackbarOpen(true);
             console.error("Error updating document:", error);
           }
     };
@@ -651,11 +636,11 @@ const handleSelectAllClick = () => {
               }}
             >
               <VisibilityTwoToneIcon
-                onClick={() => userAction(item, 'visible', true)}
+                onClick={() => userAction(item, 'visible')}
               />
               {item.status === editRequestStatus ? (
                 <ModeEditOutlineTwoToneIcon
-                  onClick={() => userAction(item, 'edit', true)}
+                  onClick={() => userAction(item, 'edit')}
                   style={{ cursor: 'pointer' }}
                 />
                 
@@ -665,7 +650,7 @@ const handleSelectAllClick = () => {
 
 {item.status === editRequestStatus ? (
                 <DeleteTwoToneIcon
-                  onClick={() => userAction(item, 'delete', true)}
+                  onClick={() => userAction(item, 'delete')}
                   style={{ cursor: 'pointer' }}
                 />
                 
@@ -763,8 +748,8 @@ const handleSelectAllClick = () => {
 
 
 
-      <VisibleRequest open={visibleReq} onClose={()=>userAction(selectItem,"visible",false)} item = {selectItem}/>
-      <EditRequest open={editReq} onClose={()=>userAction(selectItem,"edit",false)} item = {selectItem}/>
+      <VisibleRequest open={visibleReq} onClose={()=>userAction(selectItem,"visible")} item = {selectItem}/>
+      <EditRequest open={editReq} onClose={()=>userAction(selectItem,"edit")} item = {selectItem}/>
 
 
 

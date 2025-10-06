@@ -11,13 +11,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import { useContext } from 'react';
 import { locateContext } from '../../App';
-// import { useFrappeUpdateDoc } from "frappe-react-sdk";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
@@ -40,23 +38,23 @@ interface Item {
 export function PackerApproval({ open, onClose, item }: { open: boolean; onClose: () => void ;item: Item}) {
     const { employeeRole, empdetail } = useContext(locateContext);
     console.log(employeeRole, "employeeRole")
-    const [currentDate, setCurrentDate] = useState<string>('');
-    const [errorMsg, setErrorMsg] = useState<string>('');
-    const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
+    // const [currentDate, setCurrentDate] = useState<string>('');
+    // const [errorMsg, setErrorMsg] = useState<string>('');
+    // const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
     // const { updateDoc } = useFrappeUpdateDoc();
     const [openReject, setOpenReject] = React.useState(false);
     const [rejectReason, setRejectReason] = useState<string>('');
 
   
-    useEffect(() => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
+    // useEffect(() => {
+    //   const now = new Date();
+    //   const year = now.getFullYear();
+    //   const month = String(now.getMonth() + 1).padStart(2, '0');
+    //   const day = String(now.getDate()).padStart(2, '0');
   
-      const formattedDate = `${year}-${month}-${day}`;
-      setCurrentDate(formattedDate);
-    }, []);
+    //   const formattedDate = `${year}-${month}-${day}`;
+    //   setCurrentDate(formattedDate);
+    // }, []);
 
 
 
@@ -81,21 +79,21 @@ export function PackerApproval({ open, onClose, item }: { open: boolean; onClose
       }, [item]);
 
       const updatePackagerequest = (action: string) => {
-        let errorMessage = "";
+        // let errorMessage = "";
         let status =  action + " for Packaging";
-        let dashboardStatus = "Pending";
+        // let dashboardStatus = "Pending";
         if (action === "Rejected"){
-          dashboardStatus = "Cancelled";
+          // dashboardStatus = "Cancelled";
           status = "Packer Rejected"
         }
 
-        const formRaiseRequest = {
-            status: status,
-            updated_request: currentDate,
-            updated_by: empdetail.employee_name,
-            reject_reason:rejectReason,
-            dashboard_status: dashboardStatus,
-        };
+        // const formRaiseRequest = {
+        //     status: status,
+        //     updated_request: currentDate,
+        //     updated_by: empdetail.employee_name,
+        //     reject_reason:rejectReason,
+        //     dashboard_status: dashboardStatus,
+        // };
             try {
                 // updateDoc("Packaging Request", `${item.name}`, formRaiseRequest);
                 console.log("Document updated successfully ", item.name, status, empdetail.employee_name);
@@ -107,11 +105,11 @@ onClose()
                 }, 5000);
 
             } catch (error) {
-                errorMessage = "There was an error while creating the document."
-                console.log("Error updating document:", error)
-                setErrorMsg(errorMessage);
-                setErrorSnackbarOpen(true);
-                console.error("Error updating document:", error);
+                // errorMessage = "There was an error while creating the document."
+                // console.log("Error updating document:", error)
+                // setErrorMsg(errorMessage);
+                // setErrorSnackbarOpen(true);
+                // console.error("Error updating document:", error);
             }
       };
 

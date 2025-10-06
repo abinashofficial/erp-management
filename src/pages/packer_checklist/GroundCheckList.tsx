@@ -1,22 +1,10 @@
-import React, {useState, useContext, useEffect} from "react"
+import React, {useState, useContext} from "react"
 import Box from '@mui/material/Box';
-import Dialog from '@mui/material/Dialog';
-import "./PackerCheckList.css"
+// import "./PackerCheckList.css"
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { locateContext } from '../../App';
-// import { useFrappeUpdateDoc } from "frappe-react-sdk";
 import {  toast } from 'react-toastify';
-import FormControl from '@mui/material/FormControl';
-import {
-    FormControlLabel,
-    Radio,
-    RadioGroup,
-    Typography,
-    Grid,
-    FormGroup,
-    Checkbox,
-  } from "@mui/material";
   import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
@@ -27,28 +15,9 @@ import Alert from '@mui/material/Alert';
 
 interface ComponentProps {
   listType: string;
-  action:string;
 }
-type StringMap = {
-    [key: string]: boolean;
-  };
 
-  interface GroundComponent {
-    ground_check_list_1: any;
-    ground_check_list_2: any;
-    ground_check_list_3: any;
-    ground_check_list_4: any;
-    ground_check_list_5: any;
-    ground_check_list_6: any;
-    ground_check_list_7: any;
-    ground_check_list_8: any;
-    ground_check_list_9: any;
-    ground_check_list_10: any;
-    ground_check_list_11: any;
-    ground_check_list_12: any;
-  }
-
-const GroundCheckLists: React.FC<ComponentProps> = ({ listType , action}) => {
+const GroundCheckLists: React.FC<ComponentProps> = ({ listType }) => {
 // export function GroundComponenetList({listtype}) {
     const { packerCheckList } = useContext(locateContext);
 
@@ -111,8 +80,8 @@ console.log(selectedOptionsGround.ground_check_list_1, "checkedValues")
 const navigate = useNavigate();
 
 
-    const [currentDate, setCurrentDate] = useState<string>('');
-    const [currentTime, setCurrentTime] = useState<string>('');
+    const [currentDate] = useState<string>('');
+    // const [ setCurrentTime] = useState<string>('');
   
     const [errorMsg, setErrorMsg] = useState<string>('');
     const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
@@ -121,20 +90,20 @@ const navigate = useNavigate();
   
     
   
-    useEffect(() => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const hours = String(now.getHours()).padStart(2, "0");
-      const minutes = String(now.getMinutes()).padStart(2, "0");
+    // useEffect(() => {
+    //   const now = new Date();
+    //   const year = now.getFullYear();
+    //   const month = String(now.getMonth() + 1).padStart(2, '0');
+    //   const day = String(now.getDate()).padStart(2, '0');
+    //   const hours = String(now.getHours()).padStart(2, "0");
+    //   const minutes = String(now.getMinutes()).padStart(2, "0");
   
-      const formattedDate = `${year}-${month}-${day}`;
-      const formattedTime = `${hours}:${minutes}`;
+    //   const formattedDate = `${year}-${month}-${day}`;
+    //   const formattedTime = `${hours}:${minutes}`;
   
-      setCurrentTime(formattedTime)
-      setCurrentDate(formattedDate);
-    }, []);
+    //   setCurrentTime(formattedTime)
+    //   setCurrentDate(formattedDate);
+    // }, []);
 
 
 
@@ -234,12 +203,12 @@ const navigate = useNavigate();
         }
       };
 
-      const SelectOptionFun = (
-        event: React.ChangeEvent<HTMLInputElement>,
-        setValue: React.Dispatch<React.SetStateAction<string>>
-      ) => {
-        setValue(event.target.value);
-      };
+      // const SelectOptionFun = (
+      //   event: React.ChangeEvent<HTMLInputElement>,
+      //   setValue: React.Dispatch<React.SetStateAction<string>>
+      // ) => {
+      //   setValue(event.target.value);
+      // };
 
     //   const [checkedValues, setCheckedValues] = useState({
     //     yes: false,
@@ -252,7 +221,7 @@ const navigate = useNavigate();
     //       [event.target.value]: event.target.checked,
     //     });
     //   };
-    const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (event, reason) => {
+    const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (_event, reason) => {
         if (reason === 'clickaway') {
       return;
     }

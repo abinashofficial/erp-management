@@ -2,9 +2,7 @@
 import { useContext, useEffect } from "react";
 import { locateContext } from "../../App";
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
-
 import React, { useState } from 'react';
-import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -21,7 +19,6 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { QualityLeadApprovalRequest } from "../raise-req/QualityLeadApprovalReq";
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import { PackerApproval } from "../raise-req/PackerApproval";
@@ -69,7 +66,6 @@ interface Item {
 }
 
 export function PackerApprovalRequest() {
-  const [searchTerm, setSearchTerm] = useState('');
     const { packagingApprovalRequestData,setPackerCheckList } = useContext(locateContext);
   const [projectLeadStatus, setProjectLeadStatus] = useState(4);
   const [inventoryLeadStatus, setInventoryLeadStatus] = useState(4);
@@ -79,7 +75,7 @@ export function PackerApprovalRequest() {
   const [pendingLeadStatus, setPendingLeadStatus] = useState(1);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  // const [selectedItems, setSelectedItems] = useState<number[]>([]);
   // const data = packagingApprovalRequestData // Provide your data here
 
   
@@ -92,7 +88,7 @@ export function PackerApprovalRequest() {
 
 
   const filteredRows = packagingApprovalRequestData.filter((row: any) => {
-    return Object.entries(row).some(([key, value]) => {
+    return Object.entries(row).some(([_key, value]) => {
       if (!overallFilter) return true;
       if (typeof value === 'string') {
         return value.toLowerCase().includes(overallFilter.toLowerCase());
@@ -218,38 +214,38 @@ export function PackerApprovalRequest() {
 
 
 
-  const handleCheckboxChange = (index: number) => {
-    const selectedIndex = selectedItems.indexOf(index);
-    let newSelected: number[] = []; // Initialize as an empty array
+//   const handleCheckboxChange = (index: number) => {
+//     const selectedIndex = selectedItems.indexOf(index);
+//     let newSelected: number[] = []; // Initialize as an empty array
   
-    if (selectedIndex === -1) {
-      newSelected = [...selectedItems, index]; // Add index to newSelected array
-    } else if (selectedIndex === 0) {
-      newSelected = selectedItems.slice(1); // Remove first element from selectedItems
-    } else if (selectedIndex === selectedItems.length - 1) {
-      newSelected = selectedItems.slice(0, -1); // Remove last element from selectedItems
-    } else if (selectedIndex > 0) {
-      newSelected = [
-        ...selectedItems.slice(0, selectedIndex), // Elements before selectedIndex
-        ...selectedItems.slice(selectedIndex + 1), // Elements after selectedIndex
-      ];
-    }
+//     if (selectedIndex === -1) {
+//       newSelected = [...selectedItems, index]; // Add index to newSelected array
+//     } else if (selectedIndex === 0) {
+//       newSelected = selectedItems.slice(1); // Remove first element from selectedItems
+//     } else if (selectedIndex === selectedItems.length - 1) {
+//       newSelected = selectedItems.slice(0, -1); // Remove last element from selectedItems
+//     } else if (selectedIndex > 0) {
+//       newSelected = [
+//         ...selectedItems.slice(0, selectedIndex), // Elements before selectedIndex
+//         ...selectedItems.slice(selectedIndex + 1), // Elements after selectedIndex
+//       ];
+//     }
   
-    setSelectedItems(newSelected);
-    // Your handle checkbox change logic here
-  };
+//     setSelectedItems(newSelected);
+//     // Your handle checkbox change logic here
+//   };
   
 
-const handleSelectAllClick = () => {
-  if (selectedItems.length < currentItems.length) {
-    // Select all items
-    setSelectedItems(currentItems.map((item: Item, index: Number) => index));
-  } else {
-    // Deselect all items
-    setSelectedItems([]);
-  }
-  // Your handle select all logic here
-};
+// const handleSelectAllClick = () => {
+//   if (selectedItems.length < currentItems.length) {
+//     // Select all items
+//     setSelectedItems(currentItems.map((item: Item, index: Number) => index));
+//   } else {
+//     // Deselect all items
+//     setSelectedItems([]);
+//   }
+//   // Your handle select all logic here
+// };
 
   const goToPage = (pageNumber: number) => {
     if (totalPages>=pageNumber && pageNumber>=1){

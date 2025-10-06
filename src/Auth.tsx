@@ -1,14 +1,14 @@
 import React , {useContext, useEffect, useState} from 'react';
-import { useFrappeAuth } from 'frappe-react-sdk';
+// import { useFrappeAuth } from 'frappe-react-sdk';
 import { locateContext } from "./App";
 import { useNavigate } from "react-router-dom";
 
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { RiTimeLine } from 'react-icons/ri';
+// import { RiTimeLine } from 'react-icons/ri';
 
 
 
@@ -105,7 +105,7 @@ interface PackagingRequest {
 
 export const Auth: React.FC = () => {
 
-          const [myList, setMyList] = useState<string[]>(["Employee", "Project Lead", "Inventory Lead", "Packer", "Quality Lead"]);
+          const [myList] = useState<string[]>(["Employee", "Project Lead", "Inventory Lead", "Packer", "Quality Lead"]);
           const [timeLine, setTimeLine] = useState<string>("Employee");
            const [isPortrait, setIsPortrait] = useState(window.matchMedia("(orientation: portrait)").matches);
 

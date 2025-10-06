@@ -2,7 +2,6 @@
 import { useContext, useEffect } from "react";
 import { locateContext } from "../../App";
 import React, { useState } from 'react';
-import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -72,16 +71,16 @@ export function InventoryRequest() {
 
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
-  // const data = inventoryApprovalRequestData // Provide your data here
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  // // const data = inventoryApprovalRequestData // Provide your data here
+  // const [searchTerm, setSearchTerm] = useState('');
 
   const [filters, setFilters] = useState<{ [key: string]: string }>({});
   const [overallFilter, setOverallFilter] = useState<string>('');
 
 
   const filteredRows = inventoryApprovalRequestData.filter((row: any) => {
-    return Object.entries(row).some(([key, value]) => {
+    return Object.entries(row).some(([_key, value]) => {
       if (!overallFilter) return true;
       if (typeof value === 'string') {
         return value.toLowerCase().includes(overallFilter.toLowerCase());
@@ -174,38 +173,38 @@ export function InventoryRequest() {
 
 
 
-  const handleCheckboxChange = (index: number) => {
-    const selectedIndex = selectedItems.indexOf(index);
-    let newSelected: number[] = []; // Initialize as an empty array
+  // const handleCheckboxChange = (index: number) => {
+  //   const selectedIndex = selectedItems.indexOf(index);
+  //   let newSelected: number[] = []; // Initialize as an empty array
   
-    if (selectedIndex === -1) {
-      newSelected = [...selectedItems, index]; // Add index to newSelected array
-    } else if (selectedIndex === 0) {
-      newSelected = selectedItems.slice(1); // Remove first element from selectedItems
-    } else if (selectedIndex === selectedItems.length - 1) {
-      newSelected = selectedItems.slice(0, -1); // Remove last element from selectedItems
-    } else if (selectedIndex > 0) {
-      newSelected = [
-        ...selectedItems.slice(0, selectedIndex), // Elements before selectedIndex
-        ...selectedItems.slice(selectedIndex + 1), // Elements after selectedIndex
-      ];
-    }
+  //   if (selectedIndex === -1) {
+  //     newSelected = [...selectedItems, index]; // Add index to newSelected array
+  //   } else if (selectedIndex === 0) {
+  //     newSelected = selectedItems.slice(1); // Remove first element from selectedItems
+  //   } else if (selectedIndex === selectedItems.length - 1) {
+  //     newSelected = selectedItems.slice(0, -1); // Remove last element from selectedItems
+  //   } else if (selectedIndex > 0) {
+  //     newSelected = [
+  //       ...selectedItems.slice(0, selectedIndex), // Elements before selectedIndex
+  //       ...selectedItems.slice(selectedIndex + 1), // Elements after selectedIndex
+  //     ];
+  //   }
   
-    setSelectedItems(newSelected);
-    // Your handle checkbox change logic here
-  };
+  //   setSelectedItems(newSelected);
+  //   // Your handle checkbox change logic here
+  // };
   
 
-const handleSelectAllClick = () => {
-  if (selectedItems.length < currentItems.length) {
-    // Select all items
-    setSelectedItems(currentItems.map((item: Item, index: Number) => index));
-  } else {
-    // Deselect all items
-    setSelectedItems([]);
-  }
-  // Your handle select all logic here
-};
+// const handleSelectAllClick = () => {
+//   if (selectedItems.length < currentItems.length) {
+//     // Select all items
+//     setSelectedItems(currentItems.map((item: Item, index: Number) => index));
+//   } else {
+//     // Deselect all items
+//     setSelectedItems([]);
+//   }
+//   // Your handle select all logic here
+// };
 
   const goToPage = (pageNumber: number) => {
     if (totalPages>=pageNumber && pageNumber>=1){
@@ -227,9 +226,9 @@ const handleSelectAllClick = () => {
         setVisiblereq(!visibleReq)
         setSelectItem(item)
   };
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
+  // const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchTerm(event.target.value);
+  // };
 
 //   // Assuming Row is the interface you've defined
 // const filteredRows = currentItems.filter((row: Item) =>

@@ -1,49 +1,42 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import InputBase from '@mui/material/InputBase';
 import PackageGif from "../../assets/package_gif.json";
 import Checkbox from "../../assets/Layer_1-Packaging.png";
 
 import Lottie from "lottie-react";
-import Paper from '@mui/material/Paper';
 import vector from "../../assets/Vector.png"
 import { BsArrowRight } from "react-icons/bs";
 import Dialog from '@mui/material/Dialog';
 import "./LandingPage.css"
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+
 import { useContext, useEffect } from "react";
 import { locateContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
 
 
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+// const style = {
+//   position: 'absolute' as 'absolute',
+//   top: '50%',
+//   left: '50%',
+//   transform: 'translate(-50%, -50%)',
+//   width: 400,
+//   bgcolor: 'background.paper',
+//   border: '2px solid #000',
+//   boxShadow: 24,
+//   p: 4,
+// };
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-})); 
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// })); 
 
 export function LandingPage() {
-    const { employeeRole, setEditRequestStatus} = useContext(locateContext);
+    const { employeeRole} = useContext(locateContext);
   const navigate = useNavigate();
 
     useEffect(() => {
@@ -83,12 +76,12 @@ const componentListItems = componentListsDo.map((item, index) => (
     setOpen(false);
   };
 
-  const [drawer2Open, setDrawer2Open] = React.useState(false);
+  // const [drawer2Open, setDrawer2Open] = React.useState(false);
 
 
-  const toggleDrawer2 = () => {
-    setDrawer2Open(!drawer2Open)
-  };
+  // const toggleDrawer2 = () => {
+  //   setDrawer2Open(!drawer2Open)
+  // };
 
 
     return (

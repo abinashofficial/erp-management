@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { IconButton, Box, Avatar } from "@mui/material";
-import { IoIosSearch } from "react-icons/io";
-import { IoSettingsOutline } from "react-icons/io5";
-import { CiLight } from "react-icons/ci";
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
 import { VscBellDot } from "react-icons/vsc";
-import { IoMoonOutline } from "react-icons/io5";
 import Logo from "../assets/logo_prison.svg";
 import LogoSmall from "../assets/logo_prison.svg";
 import avatarPic from "../assets/avatar.png";
 import { useContext } from "react";
-import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import { Link } from "react-router-dom";
@@ -22,7 +14,6 @@ import { Link } from "react-router-dom";
 
 
 import { locateContext } from "../App";
-import { color } from "@mui/system";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -31,78 +22,17 @@ interface HeaderProps {
 }
 
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
-
 
 const Header: React.FC<HeaderProps> = ({
-  toggleDarkMode,
   isOpenMenu,
   darkMode,
 }) => {
-  const { empdetail, setSearchFilter, setEmpdetail, setEmployeeRole} = useContext(locateContext);
+  const { empdetail, setEmployeeRole} = useContext(locateContext);
 
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-    console.log(event.target.value)
-  };
-
-  const handleSearchIconClick = () => {
-    setSearchFilter(searchTerm)
-    // Perform search action here if needed
-
-    console.log('Search icon clicked!');
-
-    // navigate("/searchreq")
-  };
-
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      handleSearchIconClick();
-    }
-  };
 
 
   useEffect(() => {

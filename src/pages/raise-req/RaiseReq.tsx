@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import Paper from '@mui/material/Paper';
 import InputLabel from '@mui/material/InputLabel';
@@ -11,14 +11,12 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { useContext } from 'react';
 import { locateContext } from '../../App';
-// import { useFrappeCreateDoc } from 'frappe-react-sdk';
 import { useNavigate } from 'react-router-dom';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './CommonDrawer.css';
 import type { SelectChangeEvent } from "@mui/material/Select";
 import CloseIcon from '@mui/icons-material/Close';
-import Box from '@mui/material/Box';
 
 
 
@@ -30,18 +28,18 @@ interface SelectedOptions {
   purpose: string;
 }
 
-interface AvailableOptions {
-  category: string[];
-  transportFrom: string[];
-  transportTo: string[];
-  transportMode: string[];
-}
+// interface AvailableOptions {
+//   category: string[];
+//   transportFrom: string[];
+//   transportTo: string[];
+//   transportMode: string[];
+// }
 
 export function RaiseRequest({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { empdetail , employeeRole} = useContext(locateContext);
+  const {   employeeRole} = useContext(locateContext);
 
-  const [currentDate, setCurrentDate] = useState<string>('');
-  const [currentTime, setCurrentTime] = useState<string>('');
+  // const [currentDate, setCurrentDate] = useState<string>('');
+  // const [currentTime, setCurrentTime] = useState<string>('');
 
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
@@ -50,20 +48,20 @@ export function RaiseRequest({ open, onClose }: { open: boolean; onClose: () => 
 
   
 
-  useEffect(() => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
+  // useEffect(() => {
+  //   const now = new Date();
+  //   const year = now.getFullYear();
+  //   const month = String(now.getMonth() + 1).padStart(2, '0');
+  //   const day = String(now.getDate()).padStart(2, '0');
+  //   const hours = String(now.getHours()).padStart(2, "0");
+  //   const minutes = String(now.getMinutes()).padStart(2, "0");
 
-    const formattedDate = `${year}-${month}-${day}`;
-    const formattedTime = `${hours}:${minutes}`;
+  //   const formattedDate = `${year}-${month}-${day}`;
+  //   const formattedTime = `${hours}:${minutes}`;
 
-    setCurrentTime(formattedTime)
-    setCurrentDate(formattedDate);
-  }, []);
+  //   setCurrentTime(formattedTime)
+  //   setCurrentDate(formattedDate);
+  // }, []);
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({
     category: '',
@@ -80,7 +78,7 @@ export function RaiseRequest({ open, onClose }: { open: boolean; onClose: () => 
     transportMode: ['Bike', 'Car', 'Bus', 'Van', 'Train', 'Ship', 'Flight'],
   });
 
-  const [fieldOptions, setFieldOptions] = useState<{ [key: string]: string[] }>({
+  const [fieldOptions] = useState<{ [key: string]: string[] }>({
     category: ['Ground Components', 'Flight Components', 'Consumable Components'],
     transportFrom: ['Research Park (RF-1)', 'Thaiyur (Open Work Place-1)', 'Research Park (Open Work Place-2)', 'Sriharikota'],
     transportTo: ['Research Park (RF-1)', 'Thaiyur (Open Work Place-1)', 'Research Park (Open Work Place-2)', 'Sriharikota'],
@@ -152,7 +150,7 @@ const handleTextFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTex
   const updatePackagerequest = () => {
     console.log(selectedOptions)
     let errorMessage = "";
-    let status = "Pending";
+    // let status = "Pending";
     if (employeeRole == "inventorylead"){
         status = "Inventory Lead Approved"
     }else if (employeeRole == "projectlead"){
@@ -165,22 +163,22 @@ const handleTextFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTex
             setErrorMsg(errorMessage);
             setErrorSnackbarOpen(true);
         }else{
-          const formRaiseRequest = {
-            employee_id: empdetail.employee_id,
-            employee_name: empdetail.employee_name,
-            purpose: selectedOptions.purpose,
-            package_type: selectedOptions.category,
-            transport_from: selectedOptions.transportFrom,
-            transport_to: selectedOptions.transportTo,
-            transport_mode: selectedOptions.transportMode,
-            created_request_date: currentDate,
-            created_request_time: currentTime,
-            status: status,
-            updated_request: currentDate,
-            reports_to:empdetail.reports_to,
-            dashboard_status:"Pending",
-            // created_time_stamp:new Date(),
-          };
+          // const formRaiseRequest = {
+          //   employee_id: empdetail.employee_id,
+          //   employee_name: empdetail.employee_name,
+          //   purpose: selectedOptions.purpose,
+          //   package_type: selectedOptions.category,
+          //   transport_from: selectedOptions.transportFrom,
+          //   transport_to: selectedOptions.transportTo,
+          //   transport_mode: selectedOptions.transportMode,
+          //   created_request_date: currentDate,
+          //   created_request_time: currentTime,
+          //   status: status,
+          //   updated_request: currentDate,
+          //   reports_to:empdetail.reports_to,
+          //   dashboard_status:"Pending",
+          //   // created_time_stamp:new Date(),
+          // };
             // createDoc("Packaging Request", formRaiseRequest)
             // .then((document) => {
             //   console.log("Created Successfully Raise Request", document.name);
@@ -208,7 +206,7 @@ const handleTextFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTex
     }
   };
 
-  const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (event, reason) => {
+  const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (_event, reason) => {
         if (reason === 'clickaway') {
       return;
     }

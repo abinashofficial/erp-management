@@ -1,33 +1,4 @@
-// import React from 'react';
-// import Chart from 'react-apexcharts';
 
-// interface BarChartProps {
-//   data: {
-//     series: number[];
-//     labels: string[];
-//     colors: string[];
-//   };
-// }
-
-// const BarChart: React.FC<BarChartProps> = ({ data }) => {
-//   const options: ApexCharts.ApexOptions = {
-//     chart: {
-//       type: 'bar',
-//     },
-//     xaxis: {
-//       categories: data.labels,
-//     },
-//     colors: data.colors,
-//   };
-
-//   return (
-//     <div>
-//       <Chart options={options} series={[{ data: data.series }]} type="bar" height={350} />
-//     </div>
-//   );
-// };
-
-// export default BarChart;
 
 
 import React from 'react';

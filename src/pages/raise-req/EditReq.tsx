@@ -9,8 +9,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { useContext } from 'react';
-import { locateContext } from '../../App';
+// import { useContext } from 'react';
+// import { locateContext } from '../../App';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './CommonDrawer.css';
@@ -69,20 +69,20 @@ export function EditRequest({ open, onClose, item }: { open: boolean; onClose: (
       }, [item]);
 
 
-  const { empdetail } = useContext(locateContext);
-  const [currentDate, setCurrentDate] = useState<string>('');
+  // const { empdetail } = useContext(locateContext);
+  // const [currentDate, setCurrentDate] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
+  // useEffect(() => {
+  //   const now = new Date();
+  //   const year = now.getFullYear();
+  //   const month = String(now.getMonth() + 1).padStart(2, '0');
+  //   const day = String(now.getDate()).padStart(2, '0');
 
-    const formattedDate = `${year}-${month}-${day}`;
-    setCurrentDate(formattedDate);
-  }, []);
+  //   const formattedDate = `${year}-${month}-${day}`;
+  //   setCurrentDate(formattedDate);
+  // }, []);
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({
     category: item.package_type,
@@ -168,17 +168,6 @@ const handleTextFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTex
             setErrorMsg(errorMessage);
             setErrorSnackbarOpen(true);
         }else{
-          const formRaiseRequest = {
-            employee_id: empdetail.employee_id,
-            employee_name: empdetail.employee_name,
-            purpose: selectedOptions.purpose,
-            package_type: selectedOptions.category,
-            transport_from: selectedOptions.transportFrom,
-            transport_to: selectedOptions.transportTo,
-            transport_mode: selectedOptions.transportMode,
-            status: item.status,
-            updated_request: currentDate,
-          };
             try {
                 //  updateDoc("Packaging Request", `${item.name}`, formRaiseRequest);
                 console.log("Document updated successfully ", item.name);
@@ -201,7 +190,7 @@ onClose()                }, 5000);
     }
   };
 
-  const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (event, reason) => {
+  const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (_event, reason) => {
         if (reason === 'clickaway') {
       return;
     }

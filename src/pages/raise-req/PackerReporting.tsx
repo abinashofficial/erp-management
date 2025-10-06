@@ -1,37 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import type { ChangeEvent, FormEventHandler } from 'react';
+import React, { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
 import InputAdornment from "@mui/material/InputAdornment";
-
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { useContext } from 'react';
-import { locateContext } from '../../App';
 // import { useFrappeCreateDoc } from 'frappe-react-sdk';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './CommonDrawer.css';
-import type { SelectChangeEvent } from "@mui/material/Select";
 import CloseIcon from '@mui/icons-material/Close';
 // import { useFrappeUpdateDoc } from "frappe-react-sdk";
-import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import { styled } from '@mui/material/styles';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import Typography from '@mui/material/Typography';
 
@@ -45,12 +26,7 @@ interface SelectedOptions {
 //   onChange: FormEventHandler<HTMLInputElement>;
 // }
 
-interface AvailableOptions {
-  category: string[];
-  transportFrom: string[];
-  transportTo: string[];
-  transportMode: string[];
-}
+
 
 interface Item {
     name: string;
@@ -79,8 +55,8 @@ export function PackerReportingRequest({ open, onClose, item }: { open: boolean;
   const [selectedFile5, setSelectedFile5] = useState<FileData | null>(null);
   const [selectedFile6, setSelectedFile6] = useState<FileData | null>(null);
 
-  const { empdetail } = useContext(locateContext);
-  const [currentDate, setCurrentDate] = useState<string>('');
+  // const { empdetail } = useContext(locateContext);
+  // const [currentDate, setCurrentDate] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [errorSnackbarOpen, setErrorSnackbarOpen] = useState<boolean>(false);
 
@@ -139,15 +115,15 @@ export function PackerReportingRequest({ open, onClose, item }: { open: boolean;
 
 
 
-  useEffect(() => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
+  // useEffect(() => {
+  //   const now = new Date();
+  //   const year = now.getFullYear();
+  //   const month = String(now.getMonth() + 1).padStart(2, '0');
+  //   const day = String(now.getDate()).padStart(2, '0');
 
-    const formattedDate = `${year}-${month}-${day}`;
-    setCurrentDate(formattedDate);
-  }, []);
+  //   const formattedDate = `${year}-${month}-${day}`;
+  //   setCurrentDate(formattedDate);
+  // }, []);
 
 
 
@@ -189,19 +165,19 @@ const handleTextFieldQuantityChange: React.ChangeEventHandler<HTMLInputElement |
             setErrorMsg(errorMessage);
             setErrorSnackbarOpen(true);
         }else{
-          const formRaiseRequest = {
-            material_name:selectedOptions.material_name,
-            quantity:selectedOptions.quantity,
-            image_1:selectedFile1?.dataURL,
-            image_2:selectedFile2?.dataURL,
-            image_3:selectedFile3.dataURL,
-            image_4:selectedFile4.dataURL,
-            image_5:selectedFile5.dataURL,
-            image_6:selectedFile6.dataURL,
-            status: "Packed",
-            updated_request: currentDate,
-            updated_by:empdetail.user_id,
-          };
+          // const formRaiseRequest = {
+          //   material_name:selectedOptions.material_name,
+          //   quantity:selectedOptions.quantity,
+          //   image_1:selectedFile1?.dataURL,
+          //   image_2:selectedFile2?.dataURL,
+          //   image_3:selectedFile3.dataURL,
+          //   image_4:selectedFile4.dataURL,
+          //   image_5:selectedFile5.dataURL,
+          //   image_6:selectedFile6.dataURL,
+          //   status: "Packed",
+          //   updated_request: currentDate,
+          //   updated_by:empdetail.user_id,
+          // };
             try {
                 //  updateDoc("Packaging Request", `${item.name}`, formRaiseRequest);
                 console.log("Document updated successfully ", item.name);
@@ -221,7 +197,7 @@ onClose()
     }
   };
 
-  const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (event, reason) => {
+  const handleCloseSnack: (event: React.SyntheticEvent | Event, reason?: string) => void = (_event, reason) => {
         if (reason === 'clickaway') {
       return;
     }

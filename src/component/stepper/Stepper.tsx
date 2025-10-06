@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import greenimage from '../../assets/Filled_img.png';
 import greyimage from '../../assets/UnFilled_img.png';
 import Completed from '../../assets/Completed.png';
-import No_Event_1 from '../../assets/Not_Applicable_Lable.png';
+// import No_Event_1 from '../../assets/Not_Applicable_Lable.png';
 import Pending from '../../assets/Pending_Lable.png';
 import Rejected from '../../assets/Rejected_Label.png';
-import No_Event_2 from '../../assets/No_Event_2.png';
-import No_Event_3 from '../../assets/No_Event_3.png';
-import No_Event_4 from '../../assets/No_Event_4.png';
-import No_Event_5 from '../../assets/No_Event_5.png';
+// import No_Event_2 from '../../assets/No_Event_2.png';
+// import No_Event_3 from '../../assets/No_Event_3.png';
+// import No_Event_4 from '../../assets/No_Event_4.png';
+// import No_Event_5 from '../../assets/No_Event_5.png';
 import './Stepper.css';
 import styled from '@emotion/styled';
 
@@ -49,16 +49,19 @@ const CustomStepper: React.FC<Props> = (props) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(-1);
 
   useEffect(() => {
-    setTimeout(() => {
-      setSelectedImageIndex(-1);
-    }, 100);
+  const resetTimeout = setTimeout(() => {
+    setSelectedImageIndex(-1);
+  }, 100);
 
-    setTimeout(() => {
-      setSelectedImageIndex(props.ProgressBarValue);
-    }, 200);
+  const setTimeoutAgain = setTimeout(() => {
+    setSelectedImageIndex(props.ProgressBarValue);
+  }, 200);
 
-    return () => clearTimeout();
-  }, [props.ProgressBarValue]);
+  return () => {
+    clearTimeout(resetTimeout);
+    clearTimeout(setTimeoutAgain);
+  };
+}, [props.ProgressBarValue]);
 
   const generateDivs = () => {
     return [...Array(props.NumberOfDiv)].map((_, index) => (
@@ -80,13 +83,13 @@ const CustomStepper: React.FC<Props> = (props) => {
     ));
   };
 
-  const eventImages = {
-    1: No_Event_1,
-    2: No_Event_2,
-    3: No_Event_3,
-    4: No_Event_4,
-    5: No_Event_5,
-  };
+  // const eventImages = {
+  //   1: No_Event_1,
+  //   2: No_Event_2,
+  //   3: No_Event_3,
+  //   4: No_Event_4,
+  //   5: No_Event_5,
+  // };
 
   const generateLabels = () => {
     const labels: Label[] = [
@@ -102,14 +105,8 @@ const CustomStepper: React.FC<Props> = (props) => {
 
       if (label.status === 0) {
         background_image = Pending;
-      } else if (label.status === 1) {
-        background_image = Completed;
       } else if (label.status === 2) {
         background_image = Rejected;
-      } else if (label.status === 3) {
-        background_image = No_Event_1;
-      } else if (label.status === 4) {
-        background_image = eventImages[label.label_order]
       }
 
       return (

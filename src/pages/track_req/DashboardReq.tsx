@@ -1,9 +1,7 @@
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { locateContext } from "../../App";
-import Button from '@mui/material/Button';
 import React, { useState } from 'react';
-import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -11,20 +9,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-// import "./QualityLeadReq.css"
-import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone';
-import CustomStepper from "../../component/stepper/Stepper";
 import Box from '@mui/material/Box';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { QualityLeadApprovalRequest } from "../raise-req/QualityLeadApprovalReq";
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
-import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
+import { styled } from '@mui/material/styles';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -75,7 +67,7 @@ interface Item {
 }
 
 export function DashboardRequest() {
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  // const [searchTerm, setSearchTerm] = useState<string>('');
   const [filters, setFilters] = useState<{ [key: string]: string }>({});
   const [overallFilter, setOverallFilter] = useState<string>('');
 
@@ -86,7 +78,7 @@ export function DashboardRequest() {
   // const [qualityLeadStatus, setQualityLeadStatus] = useState(4);
   // const [progressBarValue, setProgressBarValue] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  // const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const data = qualityApprovalRequestData // Provide your data here
   const [clickedRowIndex, setClickedRowIndex] = useState<number | null>(null);
 
@@ -94,23 +86,23 @@ export function DashboardRequest() {
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = Math.min(startIndex + pageSize, data.length);
   const currentItems = data.slice(startIndex, endIndex);
-  const [selectItem, setSelectItem] = useState({
-    name: "",
-    employee_id: "",
-    employee_name: "",
-    package_type: "",
-    status: "",
-    transport_from: "",
-    transport_to: "",
-    transport_mode: "",
-    purpose: "",
-    image_1:null,
-    image_2:null,
-    image_3:null,
-    image_4:null,
-    image_5:null,
-    image_6:null,
-  });
+  // const [selectItem, setSelectItem] = useState({
+  //   name: "",
+  //   employee_id: "",
+  //   employee_name: "",
+  //   package_type: "",
+  //   status: "",
+  //   transport_from: "",
+  //   transport_to: "",
+  //   transport_mode: "",
+  //   purpose: "",
+  //   image_1:null,
+  //   image_2:null,
+  //   image_3:null,
+  //   image_4:null,
+  //   image_5:null,
+  //   image_6:null,
+  // });
 
 
 
@@ -137,49 +129,49 @@ export function DashboardRequest() {
 
 
 
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  }));
+  // const Search = styled('div')(({ theme }) => ({
+  //   position: 'relative',
+  //   borderRadius: theme.shape.borderRadius,
+  //   backgroundColor: alpha(theme.palette.common.white, 0.15),
+  //   '&:hover': {
+  //     backgroundColor: alpha(theme.palette.common.white, 0.25),
+  //   },
+  //   marginRight: theme.spacing(2),
+  //   marginLeft: 0,
+  //   width: '100%',
+  //   [theme.breakpoints.up('sm')]: {
+  //     marginLeft: theme.spacing(3),
+  //     width: 'auto',
+  //   },
+  // }));
   
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
+  // const SearchIconWrapper = styled('div')(({ theme }) => ({
+  //   padding: theme.spacing(0, 2),
+  //   height: '100%',
+  //   position: 'absolute',
+  //   pointerEvents: 'none',
+  //   display: 'flex',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // }));
   
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '20ch',
-      },
-    },
-  }));
+  // const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  //   color: 'inherit',
+  //   '& .MuiInputBase-input': {
+  //     padding: theme.spacing(1, 1, 1, 0),
+  //     // vertical padding + font size from searchIcon
+  //     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+  //     transition: theme.transitions.create('width'),
+  //     width: '100%',
+  //     [theme.breakpoints.up('md')]: {
+  //       width: '20ch',
+  //     },
+  //   },
+  // }));
 
         // Function to filter the table data based on filters
         const filteredRows = currentItems.filter((row:any) => {
-          return Object.entries(row).some(([key, value]) => {
+          return Object.entries(row).some(([_key, value]) => {
             if (!overallFilter) return true;
             if (typeof value === 'string') {
               return value.toLowerCase().includes(overallFilter.toLowerCase());

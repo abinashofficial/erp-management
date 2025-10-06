@@ -1,6 +1,5 @@
 import React from "react"
 import Box from '@mui/material/Box';
-import Dialog from '@mui/material/Dialog';
 import "./CommonPackageList.css"
 
 interface ComponentProps {
