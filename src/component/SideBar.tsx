@@ -50,6 +50,7 @@ import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 
 
 
+
 interface MenuItem {
   path?: string;
   name: string;
@@ -142,12 +143,12 @@ const SideBar: React.FC<SideBarProps> = ({
         },
       ],
     },
-    {
-      path: "/coins",
-      name: "Coins",
-      // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
-      icon:<MonetizationOnOutlinedIcon/>,
-    },
+    // {
+    //   path: "/coins",
+    //   name: "Coins",
+    //   // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
+    //   icon:<MonetizationOnOutlinedIcon/>,
+    // },
   ]);
 
   const [projectLeadMenuItems, setProjectLeadMenuItems] = useState<MenuItem[]>([
@@ -198,47 +199,47 @@ const SideBar: React.FC<SideBarProps> = ({
           name: "Packing Requests",
           icon: <HiOutlineHandRaised />,
         },
-        {
-          path: "/coinsrequests",
-          name: "Coins Requests",
-          icon: <HiOutlineHandRaised />,
-        },
+        // {
+        //   path: "/coinsrequests",
+        //   name: "Coins Requests",
+        //   icon: <HiOutlineHandRaised />,
+        // },
       ],
     },
-    {
-      path: "/calendar",
-      name: "Calendar",
-      icon: <CalendarMonthOutlinedIcon />,
-    },
-    {
-      name: "Coins",
-      // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
-      icon:<MonetizationOnOutlinedIcon/>,
-      path: "/",
+    // {
+    //   path: "/calendar",
+    //   name: "Calendar",
+    //   icon: <CalendarMonthOutlinedIcon />,
+    // },
+    // {
+    //   name: "Coins",
+    //   // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
+    //   icon:<MonetizationOnOutlinedIcon/>,
+    //   path: "/",
 
-      submenu: [
-        {
-          path: "/coinsdetail",
-          name: "Coins Detail",
-          icon: <HiOutlineHandRaised />,
-        },
-        {
-          path: "/coinsrequests",
-          name: "Coins Requests",
-          icon: <HiOutlineHandRaised />,
-        },
-        {
-          path: "/coinschart",
-          name: "Coins Chart",
-          icon: <HiOutlineHandRaised />,
-        },
-        {
-          path: "/coinsassigning",
-          name: "Coins Assigning",
-          icon: <HiOutlineHandRaised />,
-        },
-      ],
-    },
+    //   submenu: [
+    //     {
+    //       path: "/coinsdetail",
+    //       name: "Coins Detail",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //     {
+    //       path: "/coinsrequests",
+    //       name: "Coins Requests",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //     {
+    //       path: "/coinschart",
+    //       name: "Coins Chart",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //     {
+    //       path: "/coinsassigning",
+    //       name: "Coins Assigning",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //   ],
+    // },
   ]);
 
   const [inventoryLeadMenuItems, setInventoryLeadMenuItems] = useState<MenuItem[]>([
@@ -277,11 +278,11 @@ const SideBar: React.FC<SideBarProps> = ({
         },
       ],
     },
-    {
-      path: "/calendar",
-      name: "Calendar",
-      icon: <CalendarMonthOutlinedIcon />,
-    },
+    // {
+    //   path: "/calendar",
+    //   name: "Calendar",
+    //   icon: <CalendarMonthOutlinedIcon />,
+    // },
     {
       path: "/Packaging_Management/inventorlead",
       name: "Inventory Lead",
@@ -289,34 +290,34 @@ const SideBar: React.FC<SideBarProps> = ({
       icon:<FactCheckOutlinedIcon/>,
 
     },
-    {
-      name: "Coins",
-      // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
-      icon:<MonetizationOnOutlinedIcon/>,
-      path: "/",
-      submenu: [
-        {
-          path: "/coinsdetail",
-          name: "Coins Detail",
-          icon: <HiOutlineHandRaised />,
-        },
-        {
-          path: "/coinsrequests",
-          name: "Coins Requests",
-          icon: <HiOutlineHandRaised />,
-        },
-        {
-          path: "/coinschart",
-          name: "Coins Chart",
-          icon: <HiOutlineHandRaised />,
-        },
-        {
-          path: "/coinsassigning",
-          name: "Coins Assigning",
-          icon: <HiOutlineHandRaised />,
-        },
-      ],
-    },
+    // {
+    //   name: "Coins",
+    //   // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
+    //   icon:<MonetizationOnOutlinedIcon/>,
+    //   path: "/",
+    //   submenu: [
+    //     {
+    //       path: "/coinsdetail",
+    //       name: "Coins Detail",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //     {
+    //       path: "/coinsrequests",
+    //       name: "Coins Requests",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //     {
+    //       path: "/coinschart",
+    //       name: "Coins Chart",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //     {
+    //       path: "/coinsassigning",
+    //       name: "Coins Assigning",
+    //       icon: <HiOutlineHandRaised />,
+    //     },
+    //   ],
+    // },
   ]);
 
   const [packerMenuItems, setPackerMenuItems] = useState<MenuItem[]>([
@@ -348,11 +349,11 @@ const SideBar: React.FC<SideBarProps> = ({
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
       icon:<BadgeOutlinedIcon/>,
     },
-    {
-      path: "/calendar",
-      name: "Calendar",
-      icon: <CalendarMonthOutlinedIcon />,
-    },
+    // {
+    //   path: "/calendar",
+    //   name: "Calendar",
+    //   icon: <CalendarMonthOutlinedIcon />,
+    // },
     // {
     //   path: "/reporting",
     //   name: "Reporting",
@@ -389,44 +390,44 @@ const SideBar: React.FC<SideBarProps> = ({
         },
       ],
     },
-    {
-      path: "/calendar",
-      name: "Calendar",
-      icon: <CalendarMonthOutlinedIcon />,
-    },
+    // {
+    //   path: "/calendar",
+    //   name: "Calendar",
+    //   icon: <CalendarMonthOutlinedIcon />,
+    // },
     {
       path: "Packaging_Management/qualityapproval",
       name: "Quality Approval",
       // icon: <img className="menu_icons" src={QualityIcon} alt="humanImage"/>,
       icon:<FactCheckOutlinedIcon/>,
     },
-    {
-      path: "/coins",
-      name: "Coins",
-      // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
-      icon:<MonetizationOnOutlinedIcon/>,
+    // {
+    //   path: "/coins",
+    //   name: "Coins",
+    //   // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
+    //   icon:<MonetizationOnOutlinedIcon/>,
 
-    },
+    // },
   ]);
 
 
   useEffect(() => {
-    if (employeeRole === "employee"){
+    if (employeeRole === "Employee"){
       setMenuItems(userMenuItems)
       setEditRequestStatus("Pending")
-    }else if(employeeRole === "projectlead"){
+    }else if(employeeRole === "Project Lead"){
       setMenuItems(projectLeadMenuItems)
       setEditRequestStatus("Project Lead Approved")
 
-    }else if(employeeRole === "inventorylead"){
+    }else if(employeeRole === "Inventory Lead"){
       setMenuItems(inventoryLeadMenuItems)
       setEditRequestStatus("Inventory Lead Approved")
 
-    }else if(employeeRole==="packer"){
+    }else if(employeeRole==="Packer"){
       setMenuItems(packerMenuItems)
       setEditRequestStatus("Approved for Packaging")
 
-    }else if (employeeRole==="qualitylead"){
+    }else if (employeeRole==="Quality Lead"){
       setEditRequestStatus("Quality Lead Approved")
       setMenuItems(qualityLeadMenuItems)
     }else{
@@ -434,17 +435,7 @@ const SideBar: React.FC<SideBarProps> = ({
     }
   }, [employeeRole]);
 
-  // if (employeeRole === "employee"){
-  //   setMenuItems(userMenuItems)
-  // }else if(employeeRole === "projectlead"){
-  //   setMenuItems(projectLeadMenuItems)
-  // }else if(employeeRole === "inventorylead"){
-  //   setMenuItems(inventoryLeadMenuItems)
-  // }else if(employeeRole==="packer"){
-  //   setMenuItems(packerMenuItems)
-  // }else if (employeeRole==="qualitylead"){
-  //   // setMenuItems(quality)
-  // }
+
 
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(
     new Array(menuItems.length).fill(false)

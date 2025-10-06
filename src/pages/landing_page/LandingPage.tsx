@@ -16,6 +16,11 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useContext, useEffect } from "react";
+import { locateContext } from "../../App";
+import { useNavigate } from "react-router-dom";
+
+
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -38,6 +43,14 @@ const Item = styled(Paper)(({ theme }) => ({
 })); 
 
 export function LandingPage() {
+    const { employeeRole, setEditRequestStatus} = useContext(locateContext);
+  const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!employeeRole) {
+        navigate("/login");
+      }
+    }, [employeeRole]);
   const props: string[] = ['Component should only occupy 70% of the box. ', 'Component should be at the center with packaging material surrounding. ', 'For corton box - maximum 15kgs always use wooden box. ', 'Box should be waterproof - Shrink wrap or taped properly or by other means, say tarpaulin. '];
   const listItems = props.map((item, index) => (
     <li key={index}>{item}</li>

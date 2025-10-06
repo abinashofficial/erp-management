@@ -1,7 +1,15 @@
-import React , {useContext, useEffect} from 'react';
+import React , {useContext, useEffect, useState} from 'react';
 import { useFrappeAuth } from 'frappe-react-sdk';
 import { locateContext } from "./App";
 import { useNavigate } from "react-router-dom";
+
+import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { RiTimeLine } from 'react-icons/ri';
+
 
 
 
@@ -97,7 +105,23 @@ interface PackagingRequest {
 
 export const Auth: React.FC = () => {
 
-        
+          const [myList, setMyList] = useState<string[]>(["Employee", "Project Lead", "Inventory Lead", "Packer", "Quality Lead"]);
+          const [timeLine, setTimeLine] = useState<string>("Employee");
+           const [isPortrait, setIsPortrait] = useState(window.matchMedia("(orientation: portrait)").matches);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsPortrait(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
   const packagingRequests: PackagingRequest[] = [
   {
     name: "Request 001",
@@ -1029,43 +1053,70 @@ export const Auth: React.FC = () => {
   return (
     <div style={{
       display: "flex",
-      // justifyContent: "center",
-      alignItems: "start",
-      flexDirection: "column",
-      marginLeft:"100px",
+      justifyContent: "center",
+      alignItems: "space-between  ",
+flexDirection: isPortrait ? "column" : "row",
       gap: "10px",
     }}>
+<div 
+style={{
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "20px",
+  marginTop:"50px"
+}}>
+  <h2>
+    Explore By
+  </h2>
+  <div>
 
-      <button
-        onClick={() => {setEmployeeRole("employee"); navigate("/")}}
-      >
-        Employee Login
-      </button>
-            <button
-                onClick={() => {setEmployeeRole("projectlead"); navigate("/")}}
+   <FormControl  >
+                  <InputLabel id="periods">Role</InputLabel>
+                  <Select
+                    labelId="periods"
+                    id="periods-select"
+                    value={timeLine}
+                    onChange={(event) => setTimeLine(event.target.value)}
+                    label="Periods"
+                  >
+                    {myList.map(option => (
+                      <MenuItem className ="menuItemoption" key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                  </div>
+<button 
+style={{
+width: "100px",
+height: "40px",
+cursor: "pointer",
+}}
+                        onClick={() => {setEmployeeRole(timeLine); navigate("/")}}
+>
+  Login
+</button>
 
-      >
-        Project Lead Login
-      </button>
-            <button
-                        onClick={() => {setEmployeeRole("inventorylead"); navigate("/")}}
 
-      >
-        Inventory Login
-      </button>
-            <button
-                        onClick={() => {setEmployeeRole("packer"); navigate("/")}}
+      
+   
 
-      >
-        Packer Login
-      </button>
-            <button
-                        onClick={() => {setEmployeeRole("qualitylead"); navigate("/")}}
+</div>
+<div style={{
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  width:"15vw",
+  gap: "20px",
+  marginTop:"50px"
+}}>
 
-      >
-        Quality Login
-      </button>
-      {/* <button >Fetch current user</button> */}
-    </div>
+</div>
+  
+                   </div>
   );
 };

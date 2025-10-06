@@ -239,7 +239,7 @@ const Header: React.FC<HeaderProps> = ({
           </IconButton> */}
         </Box>
 
-        <Box className="avatarpic" sx={{ position: "relative" }}>
+        <Box className="avatarpic" sx={{ position: "relative", marginRight: "10px" }}>
 
         {empdetail && empdetail.employee_name? (
                 empdetail.image ? (
