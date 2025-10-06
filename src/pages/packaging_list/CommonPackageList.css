@@ -1,0 +1,98 @@
+.order_list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 70px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+    .order_list {
+        margin-left: 20px; /* Adjust margin for mobile devices */
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .order_list {
+        margin-left: 40px; /* Adjust margin for tablets */
+    }
+}
+
+@media screen and (min-width: 769px)
+
+and (max-width: 1024px) {
+    .order_list {
+        margin-left: 60px; /* Adjust margin for laptops and small screens */
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .order_list {
+        margin-left: 80px; /* Adjust margin for large screens and desktops */
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .order_list {
+        margin-left: 100px; /* Adjust margin for TV and extra large screens */
+    }
+}
+
+.headerstyle{
+font-size: 2vw;
+
+}
+
+.descriptionstyle{
+    font-size: 2vw;
+    margin-top: 20px;
+    }
+
+    /* Media query for Mobile Devices */
+@media screen and (max-width: 480px) {
+    .descriptionstyle {
+        font-size: 4vw; /* Adjust font size for smaller screens */
+        margin-top: 15px; /* Adjust margin for smaller screens */
+    }
+}
+
+
+/* Media query for Mobile Devices (320px — 480px) */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .headerstyle {
+        font-size: 3.5vw; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Media query for iPads and Tablets (481px — 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .headerstyle {
+        font-size: 2.5vw; /* Adjust font size for tablets */
+    }
+}
+
+/* Media query for Laptops and Small Screens (769px — 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .headerstyle {
+        font-size: 1.8vw; /* Adjust font size for laptops and small screens */
+    }
+}
+
+/* Media query for Large Screens and Desktops (1025px — 1200px) */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .headerstyle {
+        font-size: 1.6vw; /* Adjust font size for large screens and desktops */
+    }
+}
+
+/* Media query for TV and Extra Large Screens (1201px and more) */
+@media screen and (min-width: 1201px) {
+    .headerstyle {
+        font-size: 1.4vw; /* Adjust font size for TVs and extra large screens */
+    }
+}
+
+
+
+  
+  

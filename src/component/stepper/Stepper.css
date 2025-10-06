@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 73px; /* Set your preferred height */
+    width: 200px; /* Set your preferred width */
+    color: #fff; /* Set your preferred text color */
+  }
+  
+  .icon-container {
+    font-size: 24px; /* Set your preferred icon size */
+    margin-right: 10px; /* Adjust as needed */
+  } 
+  
+  .text-container {
+    text-align: left;
+    margin-bottom: 27px;
+  }
+  
+  .label-container{
+    display: flex;
+    justify-content: space-between;
+  }

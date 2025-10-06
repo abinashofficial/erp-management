@@ -1,0 +1,120 @@
+// import React from 'react';
+// import Chart from 'react-apexcharts';
+
+// interface BarChartProps {
+//   data: {
+//     series: number[];
+//     labels: string[];
+//     colors: string[];
+//   };
+// }
+
+// const BarChart: React.FC<BarChartProps> = ({ data }) => {
+//   const options: ApexCharts.ApexOptions = {
+//     chart: {
+//       type: 'bar',
+//     },
+//     xaxis: {
+//       categories: data.labels,
+//     },
+//     colors: data.colors,
+//   };
+
+//   return (
+//     <div>
+//       <Chart options={options} series={[{ data: data.series }]} type="bar" height={350} />
+//     </div>
+//   );
+// };
+
+// export default BarChart;
+
+
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
+
+interface SeriesData {
+  name: string;
+  data: number[];
+}
+
+interface ApexChartProps {}
+
+interface ApexChartState {
+  series: SeriesData[];
+  options: ApexCharts.ApexOptions;
+}
+
+class BarChart extends React.Component<ApexChartProps, ApexChartState> {
+  constructor(props: ApexChartProps) {
+    super(props);
+
+    this.state = {
+      series: [
+        {
+          name: 'Ground Component',
+          data: [44]
+        },
+        {
+          name: 'Consumable Component',
+          data: [76]
+        },
+        {
+          name: 'Flight Component',
+          data: [35]
+        }
+      ],
+      options: {
+        chart: {
+          type: 'bar',
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          show: true,
+          width: 2,
+          colors: ['transparent']
+        },
+        xaxis: {
+          categories: ['Today'],
+        },
+        yaxis: {
+          title: {
+            // text: 'Requests'
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          y: {
+            formatter: function (val: any) {
+              return val 
+            }
+          }
+        }
+      }
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <div id="chart">
+          <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
+        </div>
+        <div id="html-dist"></div>
+      </div>
+    );
+  }
+}
+
+export default BarChart;
