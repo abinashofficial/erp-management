@@ -315,15 +315,24 @@ export function PackerApprovalRequest() {
       display: "flex",
       flexDirection: "column"
     }}>
-            <TextField
-        id="search"
-        label="Search"
-        value={overallFilter}
-        style={{
-          width:"40vh",
-        }}
-        onChange={handleOverallFilterChange}
-      />
+  <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "end",
+      }}>
+
+                  <TextField
+              id="search"
+              label="Search"
+              value={overallFilter}
+              style={{
+                width:"40vh",
+                zIndex:0,
+                margin:"10px",
+              }}
+              onChange={handleOverallFilterChange}
+            />
+                  </div>
       <Box>
         <div >
                     <CustomStepper ProgressBarValue={progressBarValue} NumberOfDiv={38} projectLeadStatus={projectLeadStatus} inventoryLeadStatus={inventoryLeadStatus} packingStatus={packingStatus} qualityLeadStatus={qualityLeadStatus} pendingLeadStatus={pendingLeadStatus}/>

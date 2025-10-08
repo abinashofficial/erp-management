@@ -415,7 +415,7 @@ marginTop:"8px",
         width:"100%",
         display:"flex",
         justifyContent:"center",
-        padding:"50px",
+        padding:"5px",
         borderRadius:"20px",
       }}>
       <div >

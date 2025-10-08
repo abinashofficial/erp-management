@@ -46,7 +46,21 @@ const LineChartToday: React.FC = () => {
       },
       xaxis: {
         categories: ['12:00 AM', '4:00 AM', '8:00 AM', '12:00 PM', '4:00 PM', '8:00 PM'],
+      },
+          responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 250,
+          height: 250,
+        },
+        legend: {
+          position: "bottom",
+          offsetY: 0,
+          height: 20,
+        },
       }
+    }]
     };
   
   

@@ -60,11 +60,56 @@ const DonutChart: React.FC<DonutChartProps> = ({ data }) => {
     },
     labels: data.labels,
     colors: data.colors,
+    legend: {
+      position: 'right',
+      fontSize: '14px',
+    },
+    responsive: [
+      {
+        breakpoint: 1600, // large laptops & desktops
+        options: {
+          chart: {
+            width: 400,
+            height: 400,
+          },
+          legend: { position: 'right' },
+        },
+      },
+      {
+        breakpoint: 1280, // typical laptops
+        options: {
+          chart: {
+            width: 350,
+            height: 350,
+          },
+          legend: { position: 'bottom' },
+        },
+      },
+      {
+        breakpoint: 768, // tablets
+        options: {
+          chart: {
+            width: 300,
+            height: 300,
+          },
+          legend: { position: 'bottom' },
+        },
+      },
+      {
+        breakpoint: 480, // mobile devices
+        options: {
+          chart: {
+            width: 250,
+            height: 250,
+          },
+          legend: { position: 'bottom' },
+        },
+      },
+    ],
   };
-
   return (
     <div>
-      <Chart options={options} series={data.series} type="donut" width="380" />
+      <Chart options={options} series={data.series} type="donut" width="100%" />
     </div>
   );
 };

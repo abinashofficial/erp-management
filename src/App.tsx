@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 // import reactLogo from "./assets/react.svg";
 import "./App.css";
+import "./component/stepper/Stepper.css"
 import "./style/mystyle.css";
 import "./pages/landing_page/LandingPage.css";
 import "./style/animation.css";

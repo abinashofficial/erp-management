@@ -45,7 +45,21 @@ const LineChartWeak: React.FC = () => {
       },
       xaxis: {
         categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      },
+                responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 250,
+          height: 250,
+        },
+        legend: {
+          position: "bottom",
+          offsetY: 0,
+          height: 20,
+        },
       }
+    }]
     };
   
   

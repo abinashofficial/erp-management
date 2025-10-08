@@ -424,7 +424,8 @@ export function UserTrackRequest() {
       flexDirection: "column",
     }}
     >
-      <Box display= "flex" justifyContent= "space-between" >
+        <div className="filter_search">
+
       <PopupState variant="popover" popupId="demo-popup-popover">
       {(popupState) => (
         <div style={{
@@ -564,10 +565,13 @@ export function UserTrackRequest() {
         value={overallFilter}
         style={{
           width:"40vh",
+          zIndex:0,
+          margin:"10px",
         }}
         onChange={handleOverallFilterChange}
       />
-            </Box>
+              </div>
+
 
 
 

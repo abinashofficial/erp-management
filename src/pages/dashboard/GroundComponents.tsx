@@ -82,11 +82,16 @@ const GroundComponentRequest: React.FC<Data> = ({ data }) => {
         width:"100%",
         display:"flex",
         justifyContent:"center",
-        padding:"50px",
+        padding:"5px",
         borderRadius:"20px",
       }}>
       <div >
-      <h2>{data}</h2>
+
+      <h2 style={{
+                  textAlign:"center",
+
+      }}>{data}</h2>
+
       <DonutChart data={donutChartData} />
         </div>
         </div>

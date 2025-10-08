@@ -58,3 +58,27 @@ width: 240px !important;
     justify-content: flex-start;
     margin-top: 70px !important;
 }
+
+.filter_search{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+/* For portrait orientation */
+@media (orientation: portrait) {
+  .filter_search {
+    flex-direction: column;
+  }
+}
+
+/* For all small screen resolutions (like mobile or narrow windows) */
+@media (max-width: 768px) {
+  .filter_search {
+    flex-direction: column;
+    width: 100%; /* optional: make it fill smaller screens */
+    height: auto; /* optional: adjust height automatically */
+  }
+}
