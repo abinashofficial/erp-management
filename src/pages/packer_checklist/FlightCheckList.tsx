@@ -255,14 +255,11 @@ return(
               <div style={{
                     backgroundColor: "#A5D0A9",
                 borderRadius:"5px",
-                height:"5vh",
-                paddingTop:"10px",
 
               }}>
               <h3 style={{
                 display:"flex",
                 justifyContent:"center",
-                fontSize:"1.5vw",
               }}>
                 {/* Ground Components */}
                 {listType}

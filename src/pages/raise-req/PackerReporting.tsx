@@ -221,6 +221,8 @@ onClose()
   }
 
   return (
+
+
     <Drawer anchor="right" open={open} onClose={onClose}>
       <Paper className="packer_paper_width">
       <Button onClick={clearRaiseReqList} >
@@ -229,7 +231,6 @@ onClose()
         <div className="fields_gap">
           <h2>Reporting</h2>
                   <div style={{
-                    marginLeft:"30px",
         }}>
 
         </div>

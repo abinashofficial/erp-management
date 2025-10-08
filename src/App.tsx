@@ -5,6 +5,7 @@ import "./component/stepper/Stepper.css"
 import "./style/mystyle.css";
 import "./pages/landing_page/LandingPage.css";
 import "./style/animation.css";
+import "./pages/raise-req/CommonDrawer.css"
 import Header from "./component/Header.tsx";
 import SideBar from "./component/SideBar.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

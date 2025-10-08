@@ -29,11 +29,12 @@ const PieChart: React.FC<PieChartProps> = () => {
       offsetY: 0,
       height: 100,
     },
-    responsive: [{
+          responsive: [{
       breakpoint: 480,
       options: {
         chart: {
-          width: 200
+          width: 250,
+          height: 250,
         },
         legend: {
           position: "bottom",
