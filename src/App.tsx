@@ -33,7 +33,7 @@ import QualityConsumableCheckLists from "./pages/quality_checklist/ConsumableChe
 import ScrollToTop from "./component/scrolltotop.tsx";
 // import {PackerDashboardRequest} from "./pages/dashboard/TodayPacker.tsx";
 // import  Yearly  from "./component/calendar/CalendarComplete/YearlyCal";
-// import Calendar from "./component/calendar/CALENDAR/src/Calendar";
+import Calendar from "./component/calendar/CALENDAR/src/Calendar.jsx";
 
 
 
@@ -168,6 +168,7 @@ const App: React.FC = () => {
             <Route path="/Packaging_Management/checklist/groundcomponent/edit" element={<GroundCheckLists listType={"Ground Components"} />} />
             <Route path="/Packaging_Management/checklist/flightcomponent/edit" element={<FlightCheckLists listType={"Flight Components"} />} />
             <Route path="/Packaging_Management/checklist/consumablecomponent/edit" element={<ConsumableCheckLists listType={"Consumable Components"} />} />
+            <Route path="/Packaging_Management/calendar" element={<Calendar/>} />
 
           </Routes>
         </SideBar>

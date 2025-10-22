@@ -17,6 +17,8 @@ import BackHandOutlinedIcon from '@mui/icons-material/BackHandOutlined';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+
 
 
 
@@ -123,6 +125,11 @@ const SideBar: React.FC<SideBarProps> = ({
     //   // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
     //   icon:<MonetizationOnOutlinedIcon/>,
     // },
+        {
+      path: "/Packaging_Management/calendar",
+      name: "Calendar",
+      icon: <CalendarMonthOutlinedIcon />,
+    },
   ]);
 
   const [projectLeadMenuItems] = useState<MenuItem[]>([
@@ -180,11 +187,11 @@ const SideBar: React.FC<SideBarProps> = ({
         // },
       ],
     },
-    // {
-    //   path: "/calendar",
-    //   name: "Calendar",
-    //   icon: <CalendarMonthOutlinedIcon />,
-    // },
+    {
+      path: "/Packaging_Management/calendar",
+      name: "Calendar",
+      icon: <CalendarMonthOutlinedIcon />,
+    },
     // {
     //   name: "Coins",
     //   // icon:     <img className="menu_icons" src={coins} alt="coins" /> ,
@@ -252,11 +259,11 @@ const SideBar: React.FC<SideBarProps> = ({
         },
       ],
     },
-    // {
-    //   path: "/calendar",
-    //   name: "Calendar",
-    //   icon: <CalendarMonthOutlinedIcon />,
-    // },
+    {
+      path: "/Packaging_Management/calendar",
+      name: "Calendar",
+      icon: <CalendarMonthOutlinedIcon />,
+    },
     {
       path: "/Packaging_Management/inventorlead",
       name: "Inventory Lead",
@@ -323,11 +330,11 @@ const SideBar: React.FC<SideBarProps> = ({
       // icon: <img className="menu_icons" src={Raise} alt="humanImage"/>,
       icon:<BadgeOutlinedIcon/>,
     },
-    // {
-    //   path: "/calendar",
-    //   name: "Calendar",
-    //   icon: <CalendarMonthOutlinedIcon />,
-    // },
+    {
+      path: "/Packaging_Management/calendar",
+      name: "Calendar",
+      icon: <CalendarMonthOutlinedIcon />,
+    },
     // {
     //   path: "/reporting",
     //   name: "Reporting",
@@ -364,11 +371,11 @@ const SideBar: React.FC<SideBarProps> = ({
         },
       ],
     },
-    // {
-    //   path: "/calendar",
-    //   name: "Calendar",
-    //   icon: <CalendarMonthOutlinedIcon />,
-    // },
+    {
+      path: "/Packaging_Management/calendar",
+      name: "Calendar",
+      icon: <CalendarMonthOutlinedIcon />,
+    },
     {
       path: "Packaging_Management/qualityapproval",
       name: "Quality Approval",

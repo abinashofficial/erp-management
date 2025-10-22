@@ -3,7 +3,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from "@mui/material/Select";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import "./DashBoard.css"
 import BarChart from '../../component/chart/BarChartWeek.tsx';
@@ -79,38 +79,38 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 
 export function WeekPackerDashboardRequest() {
-    const [data1, setData1] = useState<Message>({
+    const [data1] = useState<Message>({
         message:{
           values:[],
         },
       });
     
-    useEffect(() => {
-        async function fetchData() {
-          try {
-            const fields = '["`tabUser`.`full_name`"]';
-            const filters = '[["Has Role","role","=","Packer"]]';
-            const order_by = '`tabUser`.`modified` DESC';
-            const group_by = '`tabUser`.`name`';
+    // useEffect(() => {
+    //     async function fetchData() {
+    //       try {
+    //         const fields = '["`tabUser`.`full_name`"]';
+    //         const filters = '[["Has Role","role","=","Packer"]]';
+    //         const order_by = '`tabUser`.`modified` DESC';
+    //         const group_by = '`tabUser`.`name`';
             
-            const response = await fetch(`/api/method/frappe.desk.reportview.get?doctype=User&fields=${fields}&filters=${filters}&order_by=${order_by}&start=0&page_length=20&view=List&group_by=${group_by}&with_comment_count=true`);
+    //         const response = await fetch(`/api/method/frappe.desk.reportview.get?doctype=User&fields=${fields}&filters=${filters}&order_by=${order_by}&start=0&page_length=20&view=List&group_by=${group_by}&with_comment_count=true`);
     
                     
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
+    //         if (!response.ok) {
+    //           throw new Error('Network response was not ok');
+    //         }
     
-            const jsonData = await response.json();
-            console.log('success', jsonData);
+    //         const jsonData = await response.json();
+    //         console.log('success', jsonData);
     
-            setData1(jsonData);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        }
+    //         setData1(jsonData);
+    //       } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //       }
+    //     }
     
-        fetchData();
-      }, []);
+    //     fetchData();
+    //   }, []);
   // const [myList, setMyList] = useState<string[]>(["Today", "Weak", "Month", "Year"]);
   // const [value, setValue] = useState<string>("");
   // const [assignPacker, setAssignPacker] = useState<boolean>(false);

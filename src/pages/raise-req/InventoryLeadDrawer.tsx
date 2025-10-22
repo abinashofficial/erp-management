@@ -44,38 +44,38 @@ interface Item {
 
 export function InventoryLeadDrawer({ open, onClose, item }: { open: boolean; onClose: () => void ;item: Item}) {
 
-  const [data1, setData1] = useState<Message>({
+  const [data1] = useState<Message>({
     message:{
       values:[],
     },
   });
 
-useEffect(() => {
-    async function fetchData() {
-      try {
-        const fields = '["`tabUser`.`full_name`"]';
-        const filters = '[["Has Role","role","=","Packer"]]';
-        const order_by = '`tabUser`.`modified` DESC';
-        const group_by = '`tabUser`.`name`';
+// useEffect(() => {
+//     async function fetchData() {
+//       try {
+//         const fields = '["`tabUser`.`full_name`"]';
+//         const filters = '[["Has Role","role","=","Packer"]]';
+//         const order_by = '`tabUser`.`modified` DESC';
+//         const group_by = '`tabUser`.`name`';
         
-        const response = await fetch(`/api/method/frappe.desk.reportview.get?doctype=User&fields=${fields}&filters=${filters}&order_by=${order_by}&start=0&page_length=20&view=List&group_by=${group_by}&with_comment_count=true`);
+//         const response = await fetch(`/api/method/frappe.desk.reportview.get?doctype=User&fields=${fields}&filters=${filters}&order_by=${order_by}&start=0&page_length=20&view=List&group_by=${group_by}&with_comment_count=true`);
 
                 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+//         if (!response.ok) {
+//           throw new Error('Network response was not ok');
+//         }
 
-        const jsonData = await response.json();
-        console.log('success', jsonData);
+//         const jsonData = await response.json();
+//         console.log('success', jsonData);
 
-        setData1(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
+//         setData1(jsonData);
+//       } catch (error) {
+//         console.error('Error fetching data:', error);
+//       }
+//     }
 
-    fetchData();
-  }, []);
+//     fetchData();
+//   }, []);
 
     console.log(data1.message.values, "data1khvcg")
     const flatList = data1.message.values.flat();
